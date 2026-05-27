@@ -6,1437 +6,47 @@
 		<title>Microcredenciales en Accesibilidad Digital · UdL</title>
 		<meta name="description" content="Guía docente de las Microcredenciales en Accesibilidad Digital de la Universitat de Lleida.">
 
-		<style>
-			:root {
-				--ink: #101828;
-				--muted: #475467;
-				--bg: #FDFDFD;
-				--surface: #ffffff;
-				--line: #d0d5dd;
-				--focus: #101828;/*#ffdd00;*/
-				--brand: #7A1F56;
-				--brand-dark: #4f1137;
-				--brand-soft: #F4EDF1;
-				--accent: #e86d2f;
-				--radius: 28px;
-				--shadow: 0 20px 55px rgba(16, 24, 40, .14);
-			}
+		<link rel="stylesheet" href="styles.css">
 
-			* {
-				box-sizing: border-box;
-			}
-
-			html {
-				scroll-behavior: smooth;
-			}
-
-			html,
-			body {
-				max-width: 100%;
-				overflow-x: hidden;
-			}
-
-			img,
-			svg {
-				max-width: 100%;
-			}
-
-			body {
-				margin: 0;
-				font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-				color: var(--ink);
-				background: var(--bg);
-				line-height: 1.55;
-				font-size: 18px;
-			}
-
-			a {
-				color: inherit;
-				text-underline-offset: .18em;
-			}
-
-			a:hover {
-				text-decoration-thickness: 3px;
-			}
-
-			:focus-visible {
-				outline: 4px solid var(--focus);
-				outline-offset: 4px;
-			}
-
-			.skip {
-				position: absolute;
-				left: 1rem;
-				top: 1rem;
-				background: #000;
-				color: #fff;
-				padding: .75rem 1rem;
-				z-index: 20;
-				transform: translateY(-150%);
-			}
-
-			.skip:focus {
-				transform: none;
-			}
-
-			.wrap {
-				width: min(1160px, calc(100% - 32px));
-				margin-inline: auto;
-			}
-
-			.topbar {
-				padding: 20px 0;
-				background: var(--bg);
-				border-bottom: 1px solid rgba(16, 24, 40, .04);
-			}
-
-			.nav {
-				display: flex;
-				gap: 28px;
-				align-items: center;
-				justify-content: flex-start;
-				flex-wrap: nowrap;
-			}
-
-			.logo {
-				display: inline-flex;
-				align-items: center;
-				gap: 16px;
-				flex: 0 0 auto;
-				font-size: clamp(1.35rem, 1.65vw, 2rem);
-				line-height: 1.1;
-				font-weight: 900;
-				text-decoration: none;
-				white-space: nowrap;
-			}
-
-			.logo span,
-			.header-icon {
-				display: inline-grid;
-				place-items: center;
-				width: 58px;
-				height: 58px;
-				border-radius: 50%;
-				background: var(--brand);
-				color: #fff;
-				margin-right: 0;
-				vertical-align: middle;
-				flex: 0 0 58px;
-				object-fit: cover;
-			}
-
-			.menu-toggle {
-				display: none;
-				align-items: center;
-				justify-content: center;
-				gap: .55rem;
-				min-height: 48px;
-				padding: .7rem 1rem;
-				border: 2px solid var(--brand);
-				border-radius: 999px;
-				background: #fff;
-				color: var(--brand);
-				font: inherit;
-				font-weight: 850;
-				cursor: pointer;
-			}
-
-			.menu-toggle__icon {
-				position: relative;
-				display: inline-block;
-				width: 1.35rem;
-				height: 1rem;
-			}
-
-			.menu-toggle__icon::before,
-			.menu-toggle__icon::after,
-			.menu-toggle__icon span {
-				content: "";
-				position: absolute;
-				left: 0;
-				width: 100%;
-				height: 3px;
-				border-radius: 999px;
-				background: currentColor;
-			}
-
-			.menu-toggle__icon::before {
-				top: 0;
-			}
-
-			.menu-toggle__icon span {
-				top: calc(50% - 1.5px);
-			}
-
-			.menu-toggle__icon::after {
-				bottom: 0;
-			}
-
-			.menu-toggle[aria-expanded="true"] .menu-toggle__icon::before {
-				top: calc(50% - 1.5px);
-				rotate: 45deg;
-			}
-
-			.menu-toggle[aria-expanded="true"] .menu-toggle__icon span {
-				opacity: 0;
-			}
-
-			.menu-toggle[aria-expanded="true"] .menu-toggle__icon::after {
-				bottom: calc(50% - 1.5px);
-				rotate: -45deg;
-			}
-
-			.menu {
-				display: flex;
-				gap: clamp(16px, 1.8vw, 28px);
-				align-items: center;
-				justify-content: flex-start;
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				white-space: nowrap;
-			}
-
-			.menu a {
-				font-size: clamp(.95rem, 1vw, 1.1rem);
-				line-height: 1.1;
-				text-decoration: none;
-				font-weight: 900;
-			}
-
-			.menu a:hover {
-				text-decoration: underline;
-			}
-
-			.btn {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				gap: .5rem;
-				border-radius: 999px;
-				border: 3px solid transparent;
-				padding: .9rem 1.45rem;
-				font-weight: 900;
-				text-decoration: none;
-				min-height: 54px;
-			}
-
-			.btn-primary {
-				background: var(--brand);
-				color: #fff;
-			}
-
-			.btn-alt {
-				background: #fff;
-				color: var(--brand);
-				border-color: var(--brand);
-			}
-#menu-principal {
-				flex: 1 1 auto;
-			}
-
-			.hero {
-				padding: 34px 0 64px;
-				background: linear-gradient(135deg, #fff 0%, #FDFDFD 45%, #f6eaf2 100%);
-			}
-
-			.hero-panel {
-				background: #fff;
-				border: 1px solid rgba(16, 24, 40, .08);
-				border-radius: 32px;
-				box-shadow: var(--shadow);
-				overflow: hidden;
-			}
-
-			.hero-main {
-				display: grid;
-				grid-template-columns: 1.05fr .95fr;
-				gap: 28px;
-				align-items: center;
-				padding: 54px 54px 34px;
-			}
-
-			.eyebrow {
-				color: var(--brand);
-				font-weight: 850;
-				text-transform: uppercase;
-				letter-spacing: .08em;
-				font-size: .82rem;
-				margin: 0 0 12px;
-			}
-
-			.h1 {
-				font-size: clamp(2.5rem, 6vw, 5rem);
-				line-height: .96;
-				margin: .3rem 0 1rem;
-				letter-spacing: -.06em;
-				color: var(--brand);
-			}
-
-			.lead {
-				font-size: clamp(1.1rem, 2vw, 1.35rem);
-				max-width: 62ch;
-				color: var(--muted);
-			}
-
-			.actions {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 12px;
-				margin-top: 26px;
-			}
-
-			.hero-visual {
-				min-height: 360px;
-				position: relative;
-				display: grid;
-				place-items: center;
-			}
-
-			.hero-icon-image {
-				display: block;
-				width: min(420px, 100%);
-				height: auto;
-				border-radius: 28px;
-			}
-
-			.hero-portrait {
-				width: min(380px, 82%);
-				aspect-ratio: 1;
-				border-radius: 50%;
-				background: linear-gradient(145deg, #f7b5d9 0%, #7A1F56 60%, #4f1137 100%);
-				position: relative;
-				box-shadow: inset 0 0 0 16px rgba(255, 255, 255, .72);
-			}
-
-			.hero-portrait::before {
-				content: "";
-				position: absolute;
-				inset: 22% 28% auto;
-				aspect-ratio: 1;
-				border-radius: 50%;
-				background: #fff;
-			}
-
-			.hero-portrait::after {
-				content: "";
-				position: absolute;
-				left: 24%;
-				right: 24%;
-				bottom: 18%;
-				height: 35%;
-				border-radius: 48% 48% 20% 20%;
-				background: #fff;
-			}
-
-			.bubble {
-				position: absolute;
-				border-radius: 999px;
-				background: #fff;
-				border: 2px solid #101828;
-				box-shadow: 0 8px 0 rgba(0, 0, 0, .08);
-			}
-
-			.b1 {
-				width: 96px;
-				height: 48px;
-				top: 8%;
-				left: 10%;
-			}
-
-			.b2 {
-				width: 82px;
-				height: 82px;
-				bottom: 8%;
-				left: 10%;
-				background: #f2d44e;
-			}
-
-			.b3 {
-				width: 68px;
-				height: 68px;
-				right: 8%;
-				top: 14%;
-				background: #7A1F56;
-			}
-
-			.b4 {
-				width: 56px;
-				height: 56px;
-				right: 12%;
-				bottom: 14%;
-				background: #e86d2f;
-			}
-
-			.hero-info-band {
-				background: var(--brand);
-				border-radius: 32px 32px 0 0;
-				margin: 0;
-				padding: 24px 28px;
-				color: #fff;
-			}
-
-			.hero-info-band h2 {
-				font-size: 1.1rem;
-				margin: 0 0 16px;
-				color: #fff;
-			}
-
-			.hero-facts {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				gap: 14px;
-				margin: 0;
-				padding: 0;
-				list-style: none;
-			}
-
-			.hero-facts li {
-				background: #fff;
-				color: var(--ink);
-				border-radius: 18px;
-				padding: 16px;
-				min-height: 112px;
-				border: 1px solid rgba(255, 255, 255, .35);
-			}
-
-			.hero-facts strong {
-				display: block;
-				font-size: 1.35rem;
-				line-height: 1.1;
-				color: var(--brand);
-			}
-
-			.hero-facts span {
-				display: block;
-				margin-top: 8px;
-				color: var(--muted);
-				font-size: .95rem;
-			}
-
-			.section {
-				padding: 64px 0;
-				background: var(--bg);
-			}
-
-			.section h2 {
-				font-size: clamp(2rem, 3.6vw, 3.5rem);
-				line-height: 1;
-				margin: 0 0 18px;
-				letter-spacing: -.04em;
-			}
-
-			.grid-2 {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 26px;
-			}
-
-			.cards {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 16px;
-				align-items: stretch;
-			}
-
-			.module {
-				min-height: 310px;
-				border-radius: 24px;
-				background: #fff;
-				border: 1px solid rgba(16, 24, 40, .12);
-				box-shadow: 0 12px 30px rgba(16, 24, 40, .08);
-				overflow: hidden;
-				display: flex;
-				flex-direction: column;
-			}
-
-			.module header {
-				padding: 18px;
-				color: #fff;
-				background: var(--c);
-			}
-
-			.module h3 {
-				margin: 0;
-				font-size: 1.35rem;
-				line-height: 1.15;
-			}
-
-			.ects {
-				display: inline-block;
-				margin-top: 10px;
-				padding: .2rem .6rem;
-				border-radius: 999px;
-				background: rgba(255, 255, 255, .18);
-				font-weight: 800;
-			}
-
-			.module p {
-				padding: 18px;
-				margin: 0;
-				color: #344054;
-			}
-
-			.feature-block {
-				background: var(--brand-soft);
-				border-radius: var(--radius);
-				padding: 42px;
-				border: 1px solid rgba(122, 31, 86, .16);
-				box-shadow: 0 18px 45px rgba(122, 31, 86, .10);
-			}
-
-			.feature-layout {
-				display: grid;
-				grid-template-columns: .95fr 1.05fr;
-				gap: 42px;
-				align-items: center;
-			}
-
-			.feature-copy {
-				display: grid;
-				gap: 22px;
-			}
-
-			.feature-item {
-				display: grid;
-				grid-template-columns: 72px 1fr;
-				gap: 20px;
-				align-items: start;
-			}
-
-			.feature-icon {
-				width: 64px;
-				height: 64px;
-				border-radius: 18px;
-				background: #fff;
-				color: var(--brand);
-				display: grid;
-				place-items: center;
-				border: 2px solid rgba(122, 31, 86, .24);
-				box-shadow: 0 10px 24px rgba(122, 31, 86, .10);
-			}
-
-			.feature-item h3 {
-				margin: 0;
-				font-size: 1.35rem;
-				line-height: 1.2;
-			}
-
-			.feature-item p {
-				margin: .35rem 0 0;
-				color: #344054;
-			}
-
-			.feature-visual {
-				background: #fff;
-				border-radius: 32px;
-				min-height: 420px;
-				display: grid;
-				place-items: center;
-				overflow: hidden;
-				border: 1px solid rgba(122, 31, 86, .12);
-			}
-
-			.professional-svg {
-				width: min(520px, 100%);
-				height: auto;
-				display: block;
-			}
-
-			.method-section {
-				background: linear-gradient(135deg, #fff 0%, var(--brand-soft) 100%);
-			}
-
-			.method-intro {
-				text-align: left;
-				max-width: 880px;
-				margin: 0 0 34px;
-			}
-
-			.method-grid {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				gap: 22px;
-			}
-
-			.method-card {
-				background: #fff;
-				border: 1px solid rgba(122, 31, 86, .12);
-				border-radius: 26px;
-				min-height: 220px;
-				padding: 26px;
-				text-align: center;
-				box-shadow: 0 18px 42px rgba(16, 24, 40, .08);
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: flex-start;
-			}
-
-			.method-card svg {
-				width: 64px;
-				height: 64px;
-				margin-bottom: 18px;
-				color: var(--brand);
-			}
-
-			.method-card h3 {
-				font-size: 1.25rem;
-				line-height: 1.2;
-				margin: 0 0 10px;
-			}
-
-			.method-card p {
-				font-size: 1rem;
-				margin: 0;
-				color: var(--muted);
-			}
-
-			.teachers {
-				display: grid;
-				grid-template-columns: repeat(5, 1fr);
-				gap: 18px;
-				align-items: stretch;
-			}
-
-			.teacher {
-				background: #fff;
-				border: 1px solid rgba(122, 31, 86, .16);
-				border-radius: 26px;
-				padding: 0;
-				overflow: hidden;
-				box-shadow: 0 18px 42px rgba(16, 24, 40, .08);
-				display: flex;
-				flex-direction: column;
-				min-height: 340px;
-			}
-
-			.teacher-media {
-				background: linear-gradient(135deg, #F4EDF1 0%, #fff 100%);
-				padding: 0;
-				aspect-ratio: 4 / 3;
-				min-height: 0;
-				display: block;
-				overflow: hidden;
-			}
-
-			.teacher-photo {
-				display: block;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: center 18%;
-			}
-
-			.teacher-svg {
-				width: 100%;
-				max-width: 180px;
-				height: auto;
-				display: block;
-			}
-
-			.teacher-body {
-				padding: 20px;
-				display: flex;
-				flex-direction: column;
-				gap: 8px;
-				flex: 1;
-			}
-
-			.teacher-badges {
-				display: flex;
-				flex-wrap: wrap;
-				gap: .45rem;
-				align-items: center;
-			}
-
-			.teacher-badge {
-				display: inline-flex;
-				align-self: flex-start;
-				border-radius: 999px;
-				background: var(--brand-soft);
-				color: var(--brand);
-				font-size: .78rem;
-				font-weight: 900;
-				padding: .35rem .65rem;
-			}
-
-			.teacher h3 {
-				font-size: 1.05rem;
-				line-height: 1.2;
-				margin: .1rem 0;
-				color: var(--ink);
-			}
-
-			.teacher p {
-				font-size: .94rem;
-				margin: 0;
-				color: var(--muted);
-			}
-
-			.teacher small {
-				display: block;
-				margin-top: auto;
-				color: #667085;
-			}
-
-			.teacher.is-coordinator {
-				border: 2px solid var(--brand);
-			}
-
-			.teacher.is-coordinator .teacher-media {
-				background: linear-gradient(135deg, #F4EDF1 0%, #f7d7e8 100%);
-			}
-
-			.contact {
-				background: #fff;
-				border-radius: var(--radius);
-				box-shadow: var(--shadow);
-				padding: 32px;
-				border: 1px solid var(--line);
-			}
-
-			.contact-layout {
-				display: grid;
-				grid-template-columns: 1.25fr .75fr;
-				gap: 28px;
-				align-items: center;
-			}
-
-			.contact-action {
-				display: flex;
-				justify-content: center;
-			}
-
-			.contact-action .btn {
-				width: min(100%, 320px);
-			}
-
-			.faq-kicker {
-				display: inline-flex;
-				gap: .65rem;
-				align-items: center;
-				background: var(--brand-soft);
-				color: var(--brand);
-				border-radius: 999px;
-				padding: .45rem .8rem;
-				font-weight: 900;
-			}
-
-			.faq-symbol {
-				inline-size: 1.7rem;
-				block-size: 1.7rem;
-				border-radius: .45rem;
-				background: var(--brand);
-				color: #fff;
-				display: inline-grid;
-				place-items: center;
-				font-weight: 900;
-			}
-
-			.faq-list {
-				display: grid;
-				gap: 14px;
-				margin-top: 28px;
-			}
-
-			.faq-item {
-				border: 1px solid var(--line);
-				background: #fff;
-				border-radius: 20px;
-				box-shadow: 0 10px 25px rgba(16, 24, 40, .06);
-				overflow: hidden;
-			}
-
-			.faq-item summary {
-				cursor: pointer;
-				list-style: none;
-				padding: 22px 72px 22px 24px;
-				font-weight: 900;
-				font-size: 1.12rem;
-				position: relative;
-			}
-
-			.faq-item summary::-webkit-details-marker {
-				display: none;
-			}
-
-			.faq-item summary:focus-visible {
-				outline: 4px solid var(--focus);
-				outline-offset: -4px;
-			}
-
-			.faq-icon {
-				position: absolute;
-				right: 20px;
-				top: 50%;
-				translate: 0 -50%;
-				inline-size: 44px;
-				block-size: 44px;
-				border-radius: 50%;
-				background: var(--brand);
-			}
-
-			.faq-icon::before,
-			.faq-icon::after {
-				content: "";
-				position: absolute;
-				background: #fff;
-				inline-size: 16px;
-				block-size: 3px;
-				top: 21px;
-				left: 14px;
-				border-radius: 3px;
-			}
-
-			.faq-icon::after {
-				rotate: 90deg;
-			}
-
-			.faq-item[open] .faq-icon::after {
-				display: none;
-			}
-
-			.faq-answer {
-				padding: 0 24px 22px;
-				color: var(--muted);
-				max-width: 74ch;
-			}
-
-			.faq-answer p {
-				margin: 0;
-			}
-
-			footer {
-				padding: 34px 0;
-				background: #101828;
-				color: #fff;
-			}
-
-			.footer-logo {
-				display: block;
-				max-width: 170px;
-				height: auto;
-				margin: 0 0 18px;
-			}
-
-
-			@media (max-width: 1400px) {
-				.wrap {
-					width: min(1160px, calc(100% - 32px));
-				}
-
-				.nav {
-					gap: 20px;
-				}
-
-				.logo {
-					font-size: 1.25rem;
-				}
-
-				.header-icon {
-					width: 48px;
-					height: 48px;
-					flex-basis: 48px;
-				}
-
-				.menu {
-					gap: 18px;
-				}
-
-				.menu a {
-					font-size: 1rem;
-				}
-}
-
-			@media (prefers-reduced-motion: reduce) {
-				html {
-					scroll-behavior: auto;
-				}
-
-				*,
-				*::before,
-				*::after {
-					animation-duration: .001ms !important;
-					animation-iteration-count: 1 !important;
-					transition-duration: .001ms !important;
-				}
-			}
-
-			@media (max-width: 900px) {
-				.wrap {
-					width: min(100% - 40px, 1160px);
-				}
-
-				.topbar {
-					padding: 14px 0;
-				}
-
-				.nav {
-					align-items: stretch;
-					flex-direction: column;
-					gap: 14px;
-				}
-
-				.logo {
-					display: inline-flex;
-					align-items: center;
-					line-height: 1.25;
-				}
-
-				.menu-toggle {
-					display: inline-flex;
-					align-self: flex-start;
-				}
-
-				#menu-principal {
-					display: none;
-					width: 100%;
-				}
-
-				#menu-principal.is-open {
-					display: block;
-				}
-
-				.menu {
-					display: grid;
-					grid-template-columns: 1fr;
-					gap: 0;
-					width: 100%;
-					border: 1px solid var(--line);
-					border-radius: 20px;
-					background: #fff;
-					overflow: hidden;
-					box-shadow: 0 14px 30px rgba(16, 24, 40, .08);
-				}
-
-				.menu li + li {
-					border-top: 1px solid var(--line);
-				}
-
-				.menu a {
-					display: block;
-					padding: 1rem 1.1rem;
-					min-height: 48px;
-				}
-
-				.hero {
-					padding: 22px 0 44px;
-				}
-
-				.hero-main,
-				.grid-2,
-				.feature-layout,
-				.contact-layout {
-					grid-template-columns: 1fr;
-				}
-
-				.contact-action {
-					justify-content: flex-start;
-				}
-
-				.hero-main {
-					padding: 34px 28px 28px;
-					gap: 24px;
-				}
-
-				.hero-visual {
-					min-height: auto;
-					padding-top: 10px;
-				}
-
-				.hero-icon-image {
-					width: min(360px, 100%);
-				}
-
-				.hero-facts,
-				.cards,
-				.teachers,
-				.method-grid {
-					grid-template-columns: 1fr 1fr;
-				}
-
-				.feature-block {
-					padding: 32px;
-				}
-
-				.h1 {
-					font-size: clamp(2.35rem, 9vw, 3.25rem);
-				}
-			}
-
-			@media (max-width: 620px) {
-				.wrap {
-					width: min(100% - 28px, 1160px);
-				}
-
-				.hero-facts,
-				.cards,
-				.teachers,
-				.method-grid {
-					grid-template-columns: 1fr;
-				}
-
-				.module {
-					min-height: auto;
-				}
-
-				.section {
-					padding: 48px 0;
-				}
-
-				.hero {
-					padding-top: 14px;
-				}
-
-				.hero-panel,
-				.feature-block,
-				.contact {
-					border-radius: 22px;
-				}
-
-				.hero-main {
-					padding: 28px 22px 24px;
-				}
-
-				.hero-info-band {
-					padding: 22px;
-					border-radius: 22px 22px 0 0;
-				}
-
-				.hero-facts li {
-					min-height: auto;
-				}
-
-				.feature-block {
-					padding: 24px;
-				}
-
-				.feature-item {
-					grid-template-columns: 1fr;
-					gap: 14px;
-				}
-
-				.feature-icon {
-					width: 56px;
-					height: 56px;
-				}
-
-				.method-card,
-				.module,
-				.teacher,
-				.faq-item {
-					border-radius: 20px;
-				}
-
-				.actions {
-					gap: 10px;
-				}
-
-				.actions .btn,
-				.contact .btn {
-					width: 100%;
-				}
-			}
-
-			@media (max-width: 480px) {
-				body {
-					font-size: 16px;
-				}
-
-				.wrap {
-					width: min(100% - 24px, 1160px);
-				}
-
-				.btn {
-					width: 100%;
-				}
-
-				.header-icon {
-					width: 34px;
-					height: 34px;
-					flex: 0 0 auto;
-				}
-
-				.hero-main {
-					padding: 24px 18px 22px;
-				}
-
-				.hero-info-band {
-					padding: 18px;
-				}
-
-				.hero-icon-image {
-					width: min(300px, 100%);
-					border-radius: 20px;
-				}
-
-				.section {
-					padding: 40px 0;
-				}
-
-				.section h2 {
-					font-size: clamp(1.85rem, 10vw, 2.35rem);
-				}
-
-				.lead {
-					font-size: 1.05rem;
-				}
-
-				.module p,
-				.teacher-body,
-				.method-card,
-				.contact,
-				.faq-answer {
-					padding-inline: 18px;
-				}
-
-				.faq-item summary {
-					padding: 18px 64px 18px 18px;
-				}
-
-				.faq-icon {
-					right: 14px;
-				}
-
-				.teacher {
-					min-height: auto;
-				}
-			}
-			@media (max-width: 390px) {
-				* {
-					min-width: 0;
-				}
-
-				body {
-					font-size: 16px;
-					line-height: 1.58;
-				}
-
-				.wrap {
-					width: calc(100% - 24px);
-				}
-
-				.topbar {
-					padding: 12px 0;
-				}
-
-				.nav {
-					gap: 12px;
-					align-items: stretch;
-				}
-
-				.logo {
-					display: flex;
-					align-items: center;
-					gap: .45rem;
-					max-width: 100%;
-					font-size: .95rem;
-					line-height: 1.25;
-				}
-
-				.header-icon {
-					width: 32px;
-					height: 32px;
-					margin-right: 0;
-					flex: 0 0 32px;
-				}
-
-				.menu-toggle,
-				.btn {
-					width: 100%;
-					min-height: 50px;
-				}
-
-				#menu-principal.is-open {
-					margin-top: 2px;
-				}
-
-				.menu a {
-					padding: .95rem 1rem;
-					font-size: 1rem;
-				}
-
-				.hero {
-					padding: 12px 0 36px;
-				}
-
-				.hero-panel {
-					border-radius: 20px;
-				}
-
-				.hero-main {
-					padding: 22px 16px 20px;
-					gap: 18px;
-				}
-
-				.eyebrow {
-					font-size: .72rem;
-					line-height: 1.3;
-					letter-spacing: .06em;
-					margin-bottom: 10px;
-				}
-
-				.h1 {
-					font-size: clamp(2.05rem, 12.5vw, 2.65rem);
-					line-height: 1;
-					letter-spacing: -.045em;
-					margin-bottom: .85rem;
-				}
-
-				.lead {
-					font-size: 1rem;
-					line-height: 1.55;
-				}
-
-				.actions {
-					margin-top: 20px;
-					gap: 10px;
-				}
-
-				.hero-visual {
-					min-height: auto;
-					padding: 4px 0 0;
-				}
-
-				.hero-icon-image {
-					width: min(285px, 100%);
-					height: auto;
-					border-radius: 18px;
-				}
-
-				.hero-info-band {
-					padding: 18px 16px;
-					border-radius: 20px 20px 0 0;
-				}
-
-				.hero-info-band h2 {
-					font-size: 1rem;
-					line-height: 1.25;
-					margin-bottom: 14px;
-				}
-
-				.hero-facts {
-					grid-template-columns: 1fr;
-					gap: 10px;
-				}
-
-				.hero-facts li {
-					min-height: auto;
-					padding: 14px;
-					border-radius: 14px;
-				}
-
-				.section {
-					padding: 36px 0;
-				}
-
-				.section h2 {
-					font-size: clamp(1.8rem, 10vw, 2.25rem);
-					line-height: 1.05;
-					letter-spacing: -.035em;
-					margin-bottom: 16px;
-				}
-
-				.feature-block {
-					padding: 20px 16px;
-					border-radius: 20px;
-				}
-
-				.feature-layout,
-				.feature-copy {
-					gap: 18px;
-				}
-
-				.feature-item {
-					grid-template-columns: 1fr;
-					gap: 12px;
-				}
-
-				.feature-icon {
-					width: 52px;
-					height: 52px;
-					border-radius: 14px;
-				}
-
-				.feature-item h3 {
-					font-size: 1.18rem;
-				}
-
-				.feature-item p {
-					font-size: .98rem;
-				}
-
-				.feature-visual {
-					min-height: auto;
-					border-radius: 20px;
-					padding: 10px;
-				}
-
-				.cards,
-				.method-grid,
-				.teachers {
-					grid-template-columns: 1fr;
-					gap: 14px;
-				}
-
-				.module,
-				.method-card,
-				.teacher,
-				.faq-item {
-					border-radius: 20px;
-				}
-
-				.module {
-					min-height: auto;
-				}
-
-				.module header,
-				.module p {
-					padding: 16px;
-				}
-
-				.module h3 {
-					font-size: 1.2rem;
-				}
-
-				.method-intro {
-					margin-bottom: 22px;
-				}
-
-				.method-card {
-					min-height: auto;
-					padding: 20px 16px;
-				}
-
-				.method-card svg {
-					width: 54px;
-					height: 54px;
-					margin-bottom: 14px;
-				}
-
-				.teacher {
-					min-height: auto;
-				}
-
-				.teacher-media {
-					aspect-ratio: 16 / 10;
-					min-height: 230px;
-					max-height: 260px;
-				}
-
-				.teacher-photo {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					object-position: center 20%;
-				}
-
-				.teacher-body {
-					padding: 18px;
-					gap: 9px;
-				}
-
-				.teacher h3 {
-					font-size: 1.12rem;
-				}
-
-				.teacher p,
-				.teacher small {
-					font-size: .95rem;
-				}
-
-				.teacher-badge {
-					font-size: .75rem;
-				}
-
-				.faq-list {
-					gap: 12px;
-					margin-top: 20px;
-				}
-
-				.faq-item summary {
-					padding: 16px 58px 16px 16px;
-					font-size: 1rem;
-					line-height: 1.35;
-				}
-
-				.faq-icon {
-					right: 12px;
-					inline-size: 40px;
-					block-size: 40px;
-				}
-
-				.faq-icon::before,
-				.faq-icon::after {
-					top: 19px;
-					left: 12px;
-				}
-
-				.faq-answer {
-					padding: 0 16px 18px;
-					font-size: .98rem;
-				}
-
-				.contact {
-					padding: 22px 16px;
-					border-radius: 20px;
-				}
-
-				footer {
-					padding: 30px 0;
-				}
-
-				.footer-logo {
-					max-width: 145px;
-					margin-bottom: 16px;
-				}
-			}
-
-			@media (max-width: 375px) {
-				.wrap {
-					width: calc(100% - 22px);
-				}
-
-				.hero-main {
-					padding-inline: 15px;
-				}
-
-				.teacher-media {
-					min-height: 240px;
-				}
-
-				.teacher-photo {
-					object-position: center 18%;
-				}
-			}
-
-		</style>
 	</head>
 
-	<body>
+	<body class="page-index">
 		<a class="skip" href="#contenido">Saltar al contenido principal</a>
 
 		<header class="topbar">
 			<div class="wrap nav">
-				<a class="logo" href="#">
-					<img class="header-icon" src="assets/UDL-logo-1.png" alt="" aria-hidden="true">
-					Curso de Formación Continua · UdL
+				<a class="logo" href="index.html">
+					<img class="header-icon" src="assets/UDL-logo-1.png" alt="ir a la pagina principal de las microcredenciales">
+					<span class="logo-text">
+						<span class="logo-title">Microcredenciales en Accesibilidad Digital</span>
+						<span class="logo-subline">· Centro de Formación Continua (UdL)</span>
+					</span>
 				</a>
 
-				<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
-					<span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
-					<span>Menú</span>
+				<button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Abrir menú principal">
+					<span class="menu-toggle-icon" aria-hidden="true"></span>
 				</button>
 
-				<nav id="menu-principal" aria-label="Navegación principal">
+				<nav id="primary-navigation" class="site-nav" aria-label="Navegación principal">
 					<ul class="menu">
-						<li><a href="#programa">Presentación</a></li>
-						<li><a href="#modulos">Módulos</a></li>
-						<li><a href="#metodologia">Metodología</a></li>
-						<li><a href="#profesorado">Profesorado</a></li>
-						<li><a href="#faq">FAQ</a></li>
-						<li><a href="#contacto">Información</a></li>
+						<li><a href="index.html#contenido" aria-current="page">Presentación</a></li>
+						<li><a href="index.html#como-cursar">Cómo cursar la formación</a></li>
+						<li>
+							<details class="modules-menu">
+								<summary>Microcredenciales</summary>
+								<ul class="modules-dropdown">
+									<li><a href="index.html#modulos">Ver todas las Microcredenciales</a></li>
+									<li><a href="modulo-1.html">M1. Fundamentos</a></li>
+									<li><a href="modulo-2.html">M2. Diseño</a></li>
+									<li><a href="modulo-3.html">M3. Codificación</a></li>
+									<li><a href="modulo-4.html">M4. Evaluación web</a></li>
+									<li><a href="modulo-5.html">M5. Documentos Digitales</a></li>
+								</ul>
+							</details>
+						</li>
+						<li><a href="index.html#metodologia">Metodología</a></li>
+						<li><a href="index.html#profesorado">Profesorado</a></li>
+						<li><a href="index.html#contacto">Información</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -1447,51 +57,50 @@
 				<div class="wrap">
 					<div class="hero-panel">
 						<div class="hero-main">
-							<div>
+							<div class="hero-title-block">
 								<p class="eyebrow">Microcredenciales UdL · Online · Castellano</p>
 
 								<h1 class="h1" id="hero-title">
-									Microcredenciales en Accesibilidad Digital
+									Microcredencial en Especialización en Accesibilidad Digital		
 								</h1>
-
-								<p class="lead">
-									Formación universitaria para diseñar, desarrollar, documentar y evaluar productos digitales accesibles con rigor técnico y orientación profesional.
-								</p>
-								<p class="lead">
-									Pendiente de aprobación.
-								</p>
-								<div class="actions">
-									<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
-										Solicitar información
-									</a>
-									<a class="btn btn-alt" href="#modulos">Ver módulos</a>
-								</div>
 							</div>
 
 							<div class="hero-visual">
 								<img class="hero-icon-image" src="assets/iconoweb.png" alt="Ilustración de las microcredenciales en accesibilidad digital">
 							</div>
+
+							<div class="hero-copy">
+								<p class="lead">
+									Formación universitaria aplicada y orientada a la práctica profesional para adquirir una visión completa de la accesibilidad digital: fundamentos, diseño, desarrollo, evaluación web y documentos accesibles.
+								</p>
+								<div class="actions">
+									<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
+										Solicitar información
+									</a>
+									<a class="btn btn-alt" href="#modulos">Ver microcredenciales</a>
+								</div>
+							</div>
 						</div>
 
 						<aside class="hero-info-band" aria-labelledby="hero-info-title">
-							<h2 id="hero-info-title">Información destacada de las microcredenciales</h2>
+							<h2 id="hero-info-title">Información destacada</h2>
 
 							<ul class="hero-facts">
 								<li>
-									<strong>4 o 5 ECTS</strong>
-									<span>Las microcredenciales son de 4 o 5 ECTS.</span>
+									<strong>Dos opciones formativas</strong>
+									<span>Cursar el itinerario completo o microcredenciales individuales.</span>
 								</li>
 								<li>
-									<strong>Septiembre</strong>
-									<span>Inicio previsto de la próxima edición.</span>
+									<strong>Online y en castellano</strong>
+									<span>Con materiales de autoestudio en el campus virtual.</span>
 								</li>
 								<li>
-									<strong>Sesiones síncronas</strong>
-									<span>2 horas cada semana para resolver dudas y explicación de actividades.</span>
+									<strong>Sesiones semanal en directo</strong>
+									<span>Clases síncronas para resolver dudas, orientar el trabajo y explicar actividades.</span>
 								</li>
 								<li>
-									<strong>Vídeo</strong>
-									<span>Contenido de estudio para trabajo autónomo guiado.</span>
+									<strong>Inicio en septiembre</strong>
+									<span>Próxima edición de la formación.</span>
 								</li>
 							</ul>
 						</aside>
@@ -1499,137 +108,145 @@
 				</div>
 			</section>
 
-			<section class="section" id="programa">
+			<section class="section" id="como-cursar">
 				<div class="wrap">
-					<div class="feature-block">
-						<p class="eyebrow">Presentación</p>
+					<p class="eyebrow">Cómo cursar la formación</p>
+					<h2>Dos formas de formarte en accesibilidad digital</h2>
+					<p class="lead">
+						La formación en accesibilidad digital se puede cursar de dos maneras: como itinerario completo o mediante microcredenciales individuales.
+					</p>
 
-						<h2>Microcredenciales para incorporar accesibilidad digital con criterio profesional.</h2>
-
-						<div class="feature-layout">
-							<div class="feature-copy">
-								<article class="feature-item">
-									<div class="feature-icon" aria-hidden="true">
-										<svg viewBox="0 0 48 48" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M8 38h32M14 34V18l10-8 10 8v16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M20 34V23h8v11M15 15l-3-4M33 15l3-4" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									</div>
-
-									<div>
-										<h3>Una visión completa de la accesibilidad</h3>
-										<p>
-											El programa aborda accesibilidad desde la comprensión de las personas usuarias, el diseño inclusivo, el desarrollo web, los documentos accesibles y la evaluación. El objetivo es que el alumnado pueda aplicar criterios técnicos en proyectos reales y comunicar resultados de forma rigurosa.
-										</p>
-									</div>
-								</article>
-
-								<article class="feature-item">
-									<div class="feature-icon" aria-hidden="true">
-										<svg viewBox="0 0 48 48" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M10 14h28v20H10z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-											<path d="m20 21 9 5-9 5v-10Z" fill="currentColor"/>
-											<path d="M20 40h8M24 34v6M34 10l4-4M38 14h4M14 10l-4-4M10 14H6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-										</svg>
-									</div>
-
-									<div>
-										<h3>Metodología flexible y acompañada</h3>
-										<p>
-											Las microcredenciales combinan contenido en vídeo, actividades prácticas y una sesión síncrona semanal de 2 horas destinada a resolver dudas, orientar el trabajo y explicar la actividad a realizar.
-										</p>
-									</div>
-								</article>
+					<div class="pathways">
+						<article class="pathway">
+							<div class="pathway-head">
+								<span class="pathway-kicker">Opción 1</span>
+								<span class="pathway-tag">Recomendada</span>
+								<h3>Itinerario completo en Accesibilidad Digital</h3>
+							</div>
+							<p>
+								La opción recomendada es cursar la microcredencial completa, formada por cinco microcredenciales que ofrecen una visión global y aplicada de la accesibilidad digital.
+							</p>
+							<div class="pathway-includes">
+								<p>Incluye:</p>
+								<ul class="pathway-modules" aria-label="Microcredenciales incluidas en el itinerario completo">
+									<li class="pathway-module pathway-module-featured">M1. Fundamentos en Accesibilidad Digital</li>
+									<li class="pathway-module">M2. Diseño en Accesibilidad Digital </li>
+									<li class="pathway-module">M3. Codificación en Accesibilidad Digital</li>
+									<li class="pathway-module">M4. Evaluación en Accesibilidad Digital</li>
+									<li class="pathway-module">M5. Documentos Digitales Accesibles</li>
+								</ul>
+							</div>
+							<p>
+								Esta opción está pensada para personas que quieren una formación completa, estructurada y orientada a la práctica profesional.
+							</p>
+							<div class="pathway-price">
+								<span>Precio del itinerario completo</span>
+								<strong>1.500 €</strong>
+								<p>1.250 € si se acredita discapacidad.</p>
 							</div>
 
-							<figure class="feature-visual">
-								<svg class="professional-svg" viewBox="0 0 760 560" role="img" aria-labelledby="professional-title professional-desc" xmlns="http://www.w3.org/2000/svg">
-									<title id="professional-title">Persona profesional trabajando en accesibilidad digital</title>
-									<desc id="professional-desc">Ilustración de una profesional revisando criterios de accesibilidad en una pantalla con marcas de verificación.</desc>
-									<rect width="760" height="560" rx="34" fill="#ffffff"/>
-									<rect x="58" y="72" width="420" height="300" rx="28" fill="#F4EDF1"/>
-									<rect x="94" y="112" width="348" height="42" rx="12" fill="#7A1F56"/>
-									<rect x="94" y="178" width="290" height="22" rx="8" fill="#CFA9BF"/>
-									<rect x="94" y="222" width="240" height="22" rx="8" fill="#CFA9BF"/>
-									<rect x="94" y="266" width="310" height="22" rx="8" fill="#CFA9BF"/>
-									<circle cx="414" cy="188" r="20" fill="#7A1F56"/>
-									<path d="m405 188 7 7 15-18" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-									<circle cx="414" cy="250" r="20" fill="#7A1F56"/>
-									<path d="m405 250 7 7 15-18" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-									<path d="M505 438c18-76 14-148-7-190h118c-20 42-24 114-6 190H505Z" fill="#7A1F56"/>
-									<circle cx="558" cy="176" r="58" fill="#F0C7DA"/>
-									<path d="M508 170c18-54 84-66 112-20 16 26 10 61-14 82-22 20-75 15-92-8-10-14-14-32-6-54Z" fill="#2B1723"/>
-									<circle cx="556" cy="190" r="48" fill="#F0C7DA"/>
-									<path d="M522 172c32 12 68-4 82-24 11 18 14 39 4 58-20-1-44-8-69-22-7 15-15 25-28 31-8-15-7-30 11-43Z" fill="#2B1723"/>
-									<path d="M520 250c18 28 62 28 78 0" stroke="#2B1723" stroke-width="5" stroke-linecap="round"/>
-									<path d="M458 318c-42 34-79 42-120 36" stroke="#7A1F56" stroke-width="30" stroke-linecap="round"/>
-									<path d="M650 318c34 26 44 70 18 106" stroke="#7A1F56" stroke-width="30" stroke-linecap="round"/>
-									<rect x="294" y="330" width="150" height="122" rx="16" fill="#101828"/>
-									<rect x="318" y="354" width="102" height="58" rx="8" fill="#F4EDF1"/>
-									<path d="M144 426h396" stroke="#101828" stroke-width="12" stroke-linecap="round"/>
-									<circle cx="640" cy="110" r="34" fill="#F4EDF1"/>
-									<path d="M628 110h24M640 98v24" stroke="#7A1F56" stroke-width="5" stroke-linecap="round"/>
-								</svg>
-							</figure>
-						</div>
+							<div class="pathway-actions">
+								<a class="btn btn-alt" href="#modulos">Consultar los modulos</a>
+								<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
+									Solicitar información
+								</a>
+							</div>
+						</article>
+
+						<article class="pathway">
+							<div class="pathway-head">
+								<span class="pathway-kicker">Opción 2</span>
+								<h3>Microcredenciales individuales</h3>
+							</div>
+							<p>
+								También es posible cursar microcredenciales individuales según los intereses, el perfil profesional o las necesidades formativas de cada persona.
+							</p>
+							<div class="pathway-price">
+								<span>Precio por microcredencial individual</span>
+								<strong>750 €</strong>
+								<p>La  M1. Fundamentos en Accesibilidad Digital se cursa de forma conjunta con M2, M3, M4 o M5.</p>
+							</div>
+							<p>
+								Para conocer los contenidos, objetivos, profesorado y condiciones de cada módulo, consulta la ficha específica de cada microcredencial.
+							</p>
+							<div class="pathway-actions">
+								<a class="btn btn-alt" href="#modulos">Ver todas las Microcredenciales </a>
+								<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
+									Solicitar información
+								</a>
+							</div>
+						</article>
 					</div>
 				</div>
 			</section>
 
 			<section class="section" id="modulos">
 				<div class="wrap">
-					<p class="eyebrow">Módulos</p>
-					<h2>Microcredenciales</h2>
+					<p class="eyebrow">Microcredenciales</p>
+					<h2>Microcredencial en Especialización en Accesibilidad Digital (14.9 ECTS)</h2>
+					<p>
+						Estas microcredenciales forman parte del itinerario completo para obtener la titulación de Microcredencial en Especialización en Accesibilidad Digital (14.9 ECTS). 
+					</p>
+					<p>
+						Pueden cursarse de forma individual o como parte del itinerario completo. La microcredencial de Fundamentos en Accesibilidad Digital es obligatoria para cursar cualquier módulo individual, ya que proporciona la base común necesaria para comprender el resto de microcredenciales.
+					</p>
+					</p>
 
 					<div class="cards">
-						<article class="module" style="--c: #1E71B9">
+						<article class="module module-featured module-color-m1">
 							<header>
-								<h3>M1. Fundamentos</h3>
-								<span class="ects">4 ECTS</span>
+								<h3>M1. Fundamentos en Accesibilidad Digital</h3>
+								<span class="ects">3 ECTS</span>
+								<span class="ects"> Obligatoria para cursar módulos individuales</span>
 							</header>
 							<p>
 								Principios de accesibilidad digital, diversidad funcional, tecnologías de apoyo, barreras habituales, normativa y criterios WCAG aplicados al contexto profesional.
 							</p>
+							<a class="module-link" href="modulo-1.html">Ver ficha del módulo 1</a>
 						</article>
 
-						<article class="module" style="--c: #A25E20">
+						<article class="module module-color-m2">
 							<header>
-								<h3>M2. Diseño</h3>
-								<span class="ects">5 ECTS</span>
+								<h3>M2. Diseño en Accesibilidad Digital </h3>
+								<span class="ects">3 ECTS</span>
 							</header>
 							<p>
 								Diseño inclusivo de interfaces, arquitectura de información, componentes, sistemas de diseño, color, tipografía, formularios, navegación y prototipado accesible.
 							</p>
+							<a class="module-link" href="modulo-2.html">Ver ficha del módulo 2</a>
 						</article>
 
-						<article class="module" style="--c: #164E63">
+						<article class="module module-color-m3">
 							<header>
-								<h3>M3. Desarrollo web</h3>
-								<span class="ects">5 ECTS</span>
+								<h3>M3. Codificación en Accesibilidad Digital</h3>
+								<span class="ects">3 ECTS</span>
 							</header>
 							<p>
 								HTML semántico, CSS accesible, interacción con teclado, foco visible, JavaScript responsable, WAI-ARIA.
 							</p>
+							<a class="module-link" href="modulo-3.html">Ver ficha del módulo 3</a>
 						</article>
 
-						<article class="module" style="--c: #AD0000">
+						<article class="module module-color-m4">
 							<header>
-								<h3>M4. Documentos</h3>
-								<span class="ects">5 ECTS</span>
-							</header>
-							<p>
-								Creación, revisión y corrección de documentos PDF y Word accesibles: estructura, estilos, tablas, imágenes, orden de lectura, metadatos y validación.
-							</p>
-						</article>
-
-						<article class="module" style="--c: #3B7E23">
-							<header>
-								<h3>M5. Evaluación web</h3>
-								<span class="ects">5 ECTS</span>
+								<h3>M4. Evaluación en Accesibilidad Digital  </h3>
+								<span class="ects">3 ECTS</span>
 							</header>
 							<p>
 								Metodologías de evaluación WCAG-EM, revisión manual y con herramientas, aplicación de WCAG, priorización de barreras, elaboración de informes y comunicación de resultados.
 							</p>
+							<a class="module-link" href="modulo-4.html">Ver ficha del módulo 4</a>
+						</article>
+
+						<article class="module module-color-m5">
+							<header>
+								<h3>M5. Documentos Digitales Accesibles</h3>
+								<span class="ects">2,9 ECTS</span>
+							</header>
+							<p>
+								Creación, revisión y corrección de documentos PDF y Word accesibles: estructura, estilos, tablas, imágenes, orden de lectura, metadatos y validación.
+							</p>
+							<a class="module-link" href="modulo-5.html">Ver ficha del módulo 5</a>
 						</article>
 					</div>
 				</div>
@@ -1641,7 +258,7 @@
 						<p class="eyebrow">Metodología</p>
 						<h2>Aprendizaje aplicado, flexible y acompañado.</h2>
 						<p class="lead">
-							El curso combina estudio autónomo con vídeo, actividades prácticas y una sesión síncrona semanal de 2 horas para resolver dudas y explicar el trabajo a realizar.
+							El curso combina estudio autónomo con vídeo, actividades prácticas y sesiónes síncronas semanales para resolver dudas y explicar el trabajo a realizar.
 						</p>
 					</div>
 
@@ -1662,8 +279,8 @@
 								<path d="M8 52c3-10 10-16 16-16s13 6 16 16" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
 								<path d="M42 19h12M42 29h8M42 39h12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
 							</svg>
-							<h3>Sesión síncrona</h3>
-							<p>Encuentro semanal de 2 horas para dudas, orientación y explicación de la actividad práctica.</p>
+							<h3>Sesiones síncronas</h3>
+							<p>Encuentros semanales para dudas, orientación y explicación de la actividad práctica.</p>
 						</article>
 
 						<article class="method-card">
@@ -1710,7 +327,7 @@
 					<small>Introducción al marco conceptual y regulatorio.</small>
 
 					<a class="teacher-link" href="https://www.linkedin.com/in/marioalmonte/" target="_blank" rel="noopener noreferrer">
-						LinkedIn de Mario Almonte
+						LinkedIn<span class="sr-only"> de Mario Almonte</span>
 					</a>
 				</div>
 			</article>
@@ -1727,7 +344,7 @@
 					<small>Interfaces, producto digital y criterios de accesibilidad aplicados al diseño.</small>
 
 					<a class="teacher-link" href="https://www.linkedin.com/in/uxavi-cardet/" target="_blank" rel="noopener noreferrer">
-						LinkedIn de Xavi Cardet
+						LinkedIn<span class="sr-only"> de Xavi Cardet</span>
 					</a>
 				</div>
 			</article>
@@ -1743,7 +360,7 @@
 					<p>HTML, CSS, JavaScript y WAI-ARIA</p>
 					<small>Implementación accesible y pruebas con teclado.</small>
 					<a class="teacher-link" href="https://www.linkedin.com/in/apedreroes/" target="_blank" rel="noopener noreferrer">
-						LinkedIn de Alberto Pedrero Esteban
+						LinkedIn<span class="sr-only"> de Alberto Pedrero Esteban</span>
 					</a>
 				</div>
 			</article>
@@ -1761,7 +378,7 @@
 					<p>Coordinación académica y accesibilidad digital</p>
 					<small>Evaluación e informes.</small>
 					<a class="teacher-link" href="https://www.linkedin.com/in/afra-pascual-almenara/" target="_blank" rel="noopener noreferrer">
-						LinkedIn de Afra Pascual Almenara
+						LinkedIn<span class="sr-only"> de Afra Pascual Almenara</span>
 					</a>
 				</div>
 			</article>
@@ -1776,7 +393,7 @@
 					<p>Documentos accesibles y evaluación web</p>
 					<small>PDF, Word, metodología de revisión e informes.</small>
 					<a class="teacher-link" href="https://www.linkedin.com/in/josehumanes/" target="_blank" rel="noopener noreferrer">
-						LinkedIn de José Humanes
+						LinkedIn<span class="sr-only"> de José Humanes</span>
 					</a>
 				</div>
 			</article>
@@ -1787,10 +404,7 @@
 
 			<section class="section" id="faq" aria-labelledby="faq-title">
 				<div class="wrap">
-					<p class="faq-kicker">
-						<span class="faq-symbol" aria-hidden="true">?</span>
-						Preguntas frecuentes
-					</p>
+					<p class="eyebrow">Preguntas frecuentes</p>
 
 					<h2 id="faq-title">Información práctica de las microcredenciales</h2>
 
@@ -1808,14 +422,13 @@
 								<p>No es necesario disponer de una titulación específica. Se valoran conocimientos previos en diseño digital, programación web o entornos tecnológicos.</p>
 							</div>
 						</details>
-
 						<details class="faq-item">
 							<summary>
 								¿Cómo funciona la admisión?
 								<span class="faq-icon" aria-hidden="true"></span>
 							</summary>
 							<div class="faq-answer">
-								<p>La admisión se realiza por riguroso orden de inscripción. Cada edición cuenta con 15 plazas.</p>
+								<p>La admisión se realiza por riguroso orden de inscripción. </p>
 							</div>
 						</details>
 
@@ -1828,6 +441,39 @@
 								<p>Está dirigido a perfiles de diseño, desarrollo, gestión de contenidos, comunicación, calidad, docencia y administración pública.</p>
 							</div>
 						</details>
+
+
+						<details class="faq-item">
+							<summary>
+								¿Por qué cursar la microcredencial completa: Microcredencial en Especialización en Accesibilidad Digital de 14,9 ECTS?
+								<span class="faq-icon" aria-hidden="true"></span>
+							</summary>
+							<div class="faq-answer">
+								<p>Este itinerario permite avanzar de forma progresiva desde los fundamentos de la accesibilidad hasta su aplicación en el diseño de interfaces, el desarrollo web, la evaluación de sitios web y la creación de documentos accesibles.</p>
+							</div>
+						</details>
+
+						<details class="faq-item">
+							<summary>
+								¿Puedo cursar las microcredenciales por separado y obtener después la titulación completa?
+								<span class="faq-icon" aria-hidden="true"></span>
+							</summary>
+							<div class="faq-answer">
+								<p>Sí. Las microcredenciales individuales son apilables. Esto significa que, si completas todos los módulos que forman parte del itinerario, podrás obtener la Microcredencial en Especialización en Accesibilidad Digital completa.</p>
+							</div>
+						</details>
+
+						<details class="faq-item">
+							<summary>
+								¿Por qué debo cursar el módulo de Fundamentos si quiero matricularme en otra microcredencial?
+								<span class="faq-icon" aria-hidden="true"></span>
+							</summary>
+							<div class="faq-answer">
+								<p>El módulo de Fundamentos en Accesibilidad Digital es obligatorio porque proporciona la base común necesaria para comprender el resto de microcredenciales.</p>
+								<p>En este módulo se trabajan los conceptos esenciales de la accesibilidad digital, las necesidades de las personas con discapacidad, el uso de tecnologías de apoyo, las barreras más habituales y el marco normativo básico. Esta base permite abordar el diseño, la codificación, la evaluación web y los documentos accesibles con una perspectiva más empática, técnica y profesional.</p>
+							</div>
+						</details>
+
 
 						<details class="faq-item">
 							<summary>
@@ -1844,16 +490,12 @@
 
 			<section class="section" id="contacto">
 				<div class="wrap">
+					<p class="eyebrow">Solicitud de información</p>
+
 					<div class="contact contact-layout">
 						<div>
-							<p class="eyebrow">Solicitud de información</p>
-							<h2>Inicio previsto en septiembre</h2>
-							<p>
-								La información de matrícula y precio se anunciará próximamente.
-							</p>
-							<p>
-								Puedes registrar tus datos y recibirás información cuando se abra el proceso.
-							</p>
+							<h2>¿Quieres recibir información de la Microcredencial?</h2>
+							<p>La inscripción para la siguiente edición del curso todavía no se ha abierto. Registra tus datos y recibirás información de cuando se abra el proceso.</p>
 						</div>
 						<div class="contact-action">
 							<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
@@ -1865,6 +507,8 @@
 			</section>
 		</main>
 
+		<script src="menu.js"></script>
+
 		<footer>
 			<div class="wrap">
 				<img class="footer-logo" src="https://www.noticiesdelleida.udl.cat/export/sites/NoticiesDeLleida/ca/.galleries/Imatges/LogoUdLBlanc.png" alt="Universitat de Lleida">
@@ -1872,40 +516,5 @@
 				<p>Universitat de Lleida · Centro de Formación Continua · cfp.formaciopermanent@udl.cat</p>
 			</div>
 		</footer>
-		<script>
-			const menuButton = document.querySelector(".menu-toggle");
-			const menu = document.getElementById("menu-principal");
-
-			if (menuButton && menu) {
-				menuButton.addEventListener("click", () => {
-					const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
-					menuButton.setAttribute("aria-expanded", String(!isExpanded));
-					menu.classList.toggle("is-open", !isExpanded);
-				});
-
-				menu.addEventListener("click", (event) => {
-					if (event.target.matches("a") && window.matchMedia("(max-width: 900px)").matches) {
-						menuButton.setAttribute("aria-expanded", "false");
-						menu.classList.remove("is-open");
-					}
-				});
-
-				document.addEventListener("keydown", (event) => {
-					if (event.key === "Escape" && menu.classList.contains("is-open")) {
-						menuButton.setAttribute("aria-expanded", "false");
-						menu.classList.remove("is-open");
-						menuButton.focus();
-					}
-				});
-
-				window.addEventListener("resize", () => {
-					if (!window.matchMedia("(max-width: 900px)").matches) {
-						menuButton.setAttribute("aria-expanded", "false");
-						menu.classList.remove("is-open");
-					}
-				});
-			}
-		</script>
-
 	</body>
 </html>
