@@ -1,0 +1,763 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Guía docente de las Microcredenciales en Accesibilidad Digital de la Universitat de Lleida.">
+
+		<link rel="stylesheet" href="styles.css">
+		<style>
+			body.page-index .fake-h2 {
+				font-size: clamp(2rem, 3.6vw, 3.5rem);
+				line-height: 1;
+				margin: 0 0 18px;
+				letter-spacing: -.04em;
+				font-weight: 900;
+			}
+
+			body.page-index .topbar {
+				padding: 20px 0;
+				background: #fff;
+				border-bottom: 1px solid rgba(16, 24, 40, .08);
+			}
+
+			body.page-index .nav {
+				display: flex;
+				gap: 16px;
+				align-items: flex-start;
+				justify-content: flex-start;
+				flex-direction: column;
+			}
+
+			body.page-index .nav > .site-nav {
+				width: 100%;
+			}
+
+			body.page-index .logo {
+				display: inline-flex;
+				align-items: center;
+				gap: 16px;
+				font-size: clamp(1.25rem, 1.5vw, 1.75rem);
+				line-height: 1.1;
+				font-weight: 900;
+				text-decoration: none;
+			}
+
+			body.page-index .header-icon {
+				display: inline-grid;
+				place-items: center;
+				width: 58px;
+				height: 58px;
+				border-radius: 12px;
+				background: var(--brand);
+				color: #fff;
+				margin-right: 0;
+				vertical-align: middle;
+				flex: 0 0 58px;
+				object-fit: cover;
+			}
+
+			body.page-index .logo-text {
+				display: flex;
+				flex-direction: column;
+				min-width: 0;
+			}
+
+			body.page-index .logo-title,
+			body.page-index .logo-subline {
+				display: block;
+				min-width: 0;
+			}
+
+			body.page-index .logo-title {
+				font-size: 1em;
+			}
+
+			body.page-index .logo-subline {
+				font-size: .88em;
+				font-weight: 800;
+				color: var(--muted);
+			}
+
+			body.page-index .menu {
+				display: flex;
+				gap: clamp(14px, 1.7vw, 26px);
+				align-items: center;
+				justify-content: flex-start;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				flex-wrap: wrap;
+			}
+
+			body.page-index .menu a {
+				font-size: clamp(.95rem, 1vw, 1.05rem);
+				line-height: 1.1;
+				text-decoration: none;
+				font-weight: 900;
+			}
+
+			body.page-index .menu a:hover {
+				text-decoration: underline;
+			}
+
+			body.page-index .modules-menu {
+				position: relative;
+			}
+
+			body.page-index .modules-menu summary {
+				display: inline-flex;
+				align-items: center;
+				gap: .35rem;
+				font-size: clamp(.95rem, 1vw, 1.05rem);
+				line-height: 1.1;
+				font-weight: 900;
+				cursor: pointer;
+				list-style: none;
+			}
+
+			body.page-index .modules-menu summary::-webkit-details-marker {
+				display: none;
+			}
+
+			body.page-index .modules-menu summary::after {
+				content: "";
+				width: .45rem;
+				height: .45rem;
+				border-right: 2px solid currentColor;
+				border-bottom: 2px solid currentColor;
+				rotate: 45deg;
+				translate: 0 -.12rem;
+			}
+
+			body.page-index .modules-menu[open] summary::after {
+				rotate: 225deg;
+				translate: 0 .12rem;
+			}
+
+			body.page-index .modules-dropdown {
+				position: absolute;
+				top: calc(100% + 12px);
+				left: 0;
+				z-index: 30;
+				display: grid;
+				gap: 6px;
+				width: min(320px, calc(100vw - 32px));
+				margin: 0;
+				padding: 10px;
+				list-style: none;
+				border: 1px solid var(--line);
+				border-radius: 18px;
+				background: #fff;
+				box-shadow: 0 18px 42px rgba(16, 24, 40, .14);
+			}
+
+			body.page-index .modules-dropdown a {
+				display: block;
+				padding: .8rem .9rem;
+				border-radius: 12px;
+				color: var(--brand);
+			}
+
+			body.page-index .modules-dropdown a:hover {
+				background: var(--brand-soft);
+			}
+
+			body.page-index .fake-h3 {
+				margin: 0;
+				font-size: 1.35rem;
+				line-height: 1.15;
+				font-weight: 900;
+			}
+
+			body.page-index .pathway .fake-h3 {
+				grid-column: 1 / -1;
+				font-size: clamp(1.45rem, 2vw, 2.1rem);
+				line-height: 1.12;
+			}
+
+			body.page-index .module > div:first-child {
+				padding: 18px;
+				color: #fff;
+				background: var(--c);
+			}
+
+			body.page-index .hero-info-band h6 {
+				font-size: 1.1rem;
+				margin: 0 0 16px;
+				color: #fff;
+			}
+
+			body.page-index .method-card .fake-h3 {
+				font-size: 1.25rem;
+				line-height: 1.2;
+				margin: 0 0 10px;
+			}
+
+			body.page-index .teacher .fake-h3 {
+				font-size: 1.05rem;
+				line-height: 1.2;
+				margin: .1rem 0;
+				color: var(--ink);
+			}
+
+			body.page-index .footer-copy {
+				padding: 34px 0;
+				background: #101828;
+				color: #fff;
+			}
+
+			body.page-index .faq-question {
+				cursor: pointer;
+				list-style: none;
+				padding: 22px 72px 22px 24px;
+				font-weight: 900;
+				font-size: 1.12rem;
+				position: relative;
+			}
+
+			body.page-index .faq-item .faq-answer {
+				display: none;
+			}
+
+			body.page-index .faq-item.is-open .faq-answer {
+				display: block;
+			}
+
+			body.page-index .faq-item.is-open .faq-icon::after {
+				display: none;
+			}
+		</style>
+
+	</head>
+
+	<body class="page-index">
+		<div class="topbar">
+			<div class="wrap nav">
+				<a class="logo" href="index.html" tabindex="12">
+					<img class="header-icon" src="assets/UDL-logo-1.png">
+					<span class="logo-text">
+						<span class="logo-title">Microcredenciales en Accesibilidad Digital</span>
+						<span class="logo-subline">· Centro de Formación Continua (UdL)</span>
+					</span>
+				</a>
+
+				<div class="menu-toggle">
+					<span class="menu-toggle-icon"></span>
+				</div>
+
+				<div id="primary-navigation" class="site-nav">
+					<ul class="menu">
+						<li><a href="indexnoa.html#contenido" tabindex="6">Presentación</a></li>
+						<li><a href="indexnoa.html#como-cursar" tabindex="2">Cómo cursar la formación</a></li>
+						<li>
+							<details class="modules-menu">
+								<summary>Microcredenciales</summary>
+								<ul class="modules-dropdown">
+									<li><a href="indexnoa.html#modulos" tabindex="19">Ver todas las Microcredenciales</a></li>
+									<li><a href="modulo-1.html" tabindex="4">M1. Fundamentos</a></li>
+									<li><a href="modulo-2.html" tabindex="16">M2. Diseño</a></li>
+									<li><a href="modulo-3.html" tabindex="8">M3. Codificación</a></li>
+									<li><a href="modulo-4.html" tabindex="21">M4. Evaluación web</a></li>
+									<li><a href="modulo-5.html" tabindex="10">M5. Documentos Digitales</a></li>
+								</ul>
+							</details>
+						</li>
+						<li><a href="indexnoa.html#metodologia" tabindex="14">Metodología</a></li>
+						<li><a href="indexnoa.html#profesorado" tabindex="1">Profesorado</a></li>
+						<li><a href="indexnoa.html#contacto" tabindex="18">Información</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="contenido">
+			<div class="hero">
+				<div class="wrap">
+					<div class="hero-panel">
+						<div class="hero-main">
+							<div class="hero-title-block">
+								<p class="eyebrow">Microcredenciales UdL · Online · Castellano</p>
+
+								<h4 class="h1" id="hero-title">
+									Microcredencial en Especialización en Accesibilidad Digital		
+								</h4>
+							</div>
+
+							<div class="hero-visual">
+								<img class="hero-icon-image" src="assets/iconoweb.png">
+							</div>
+
+							<div class="hero-copy">
+								<p class="lead">
+									Formación universitaria aplicada y orientada a la práctica profesional para adquirir una visión completa de la accesibilidad digital: fundamentos, diseño, desarrollo, evaluación web y documentos accesibles.
+									</p>
+									<div class="actions">
+										<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" tabindex="24">
+											Pulsa aquí
+										</a>
+										<a class="btn btn-alt" href="#modulos" tabindex="5">Haz clic aquí</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="hero-info-band">
+								<h6 id="hero-info-title">Información destacada</h6>
+
+							<ul class="hero-facts">
+								<li>
+									<strong>Dos opciones formativas</strong>
+									<span>Cursar el itinerario completo o microcredenciales individuales.</span>
+								</li>
+								<li>
+									<strong>Online y en castellano</strong>
+									<span>Con materiales de autoestudio en el campus virtual.</span>
+								</li>
+								<li>
+									<strong>Sesiones semanal en directo</strong>
+									<span>Clases síncronas para resolver dudas, orientar el trabajo y explicar actividades.</span>
+								</li>
+								<li>
+									<strong>Inicio en septiembre</strong>
+									<span>Próxima edición de la formación.</span>
+								</li>
+							</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="section" id="como-cursar">
+					<div class="wrap">
+						<p class="eyebrow">Cómo cursar la formación</p>
+						<h5 class="fake-h2">Dos formas de formarte en accesibilidad digital</h5>
+					<p class="lead">
+						La formación en accesibilidad digital se puede cursar de dos maneras: como itinerario completo o mediante microcredenciales individuales.
+					</p>
+
+					<div class="pathways">
+						<article class="pathway">
+							<div class="pathway-head">
+								<span class="pathway-kicker">Opción 1</span>
+								<span class="pathway-tag">Recomendada</span>
+									<h6 class="fake-h3">Itinerario completo en Accesibilidad Digital</h6>
+							</div>
+							<p>
+								La opción recomendada es cursar la microcredencial completa, formada por cinco microcredenciales que ofrecen una visión global y aplicada de la accesibilidad digital.
+							</p>
+							<div class="pathway-includes">
+								<p>Incluye:</p>
+								<ul class="pathway-modules">
+									<li class="pathway-module pathway-module-featured">M1. Fundamentos en Accesibilidad Digital</li>
+									<li class="pathway-module">M2. Diseño en Accesibilidad Digital </li>
+									<li class="pathway-module">M3. Codificación en Accesibilidad Digital</li>
+									<li class="pathway-module">M4. Evaluación en Accesibilidad Digital</li>
+									<li class="pathway-module">M5. Documentos Digitales Accesibles</li>
+								</ul>
+							</div>
+							<p>
+								Esta opción está pensada para personas que quieren una formación completa, estructurada y orientada a la práctica profesional.
+							</p>
+							<div class="pathway-price">
+								<span>Precio del itinerario completo</span>
+								<strong>1.500 €</strong>
+								<p>1.250 € si se acredita discapacidad.</p>
+							</div>
+
+							<div class="pathway-actions">
+								<a class="btn btn-alt" href="#modulos" tabindex="22">Más información</a>
+								<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" tabindex="7">
+									Click aquí
+								</a>
+							</div>
+						</article>
+
+						<article class="pathway">
+							<div class="pathway-head">
+								<span class="pathway-kicker">Opción 2</span>
+								<h6 class="fake-h3">Microcredenciales individuales</h6>
+							</div>
+							<p>
+								También es posible cursar microcredenciales individuales según los intereses, el perfil profesional o las necesidades formativas de cada persona.
+							</p>
+							<div class="pathway-price">
+								<span>Precio por microcredencial individual</span>
+								<strong>750 €</strong>
+								<p>La  M1. Fundamentos en Accesibilidad Digital se cursa de forma conjunta con M2, M3, M4 o M5.</p>
+							</div>
+							<p>
+								Para conocer los contenidos, objetivos, profesorado y condiciones de cada módulo, consulta la ficha específica de cada microcredencial.
+							</p>
+							<div class="pathway-actions">
+								<a class="btn btn-alt" href="#modulos" tabindex="27">Ver más </a>
+								<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" tabindex="9">
+									Aquí
+								</a>
+							</div>
+						</article>
+					</div>
+				</div>
+				</div>
+
+				<div class="section" id="modulos">
+					<div class="wrap">
+						<p class="eyebrow">Microcredenciales</p>
+						<h5 class="fake-h2">Microcredencial en Especialización en Accesibilidad Digital (14.9 ECTS)</h5>
+					<p>
+						Estas microcredenciales forman parte del itinerario completo para obtener la titulación de Microcredencial en Especialización en Accesibilidad Digital (14.9 ECTS). 
+					</p>
+					<p>
+						Pueden cursarse de forma individual o como parte del itinerario completo. La microcredencial de Fundamentos en Accesibilidad Digital es obligatoria para cursar cualquier módulo individual, ya que proporciona la base común necesaria para comprender el resto de microcredenciales.
+					</p>
+					</p>
+
+					<div class="cards">
+						<article class="module module-featured module-color-m1">
+							<div>
+								<h6 class="fake-h3">M1. Fundamentos en Accesibilidad Digital</h6>
+								<span class="ects">3 ECTS</span>
+								<span class="ects"> Obligatoria para cursar módulos individuales</span>
+							</div>
+							<p>
+								Principios de accesibilidad digital, diversidad funcional, tecnologías de apoyo, barreras habituales, normativa y criterios WCAG aplicados al contexto profesional.
+							</p>
+							<a class="module-link" href="modulo-1.html" tabindex="33">Leer más</a>
+						</article>
+
+						<article class="module module-color-m2">
+							<div>
+								<h6 class="fake-h3">M2. Diseño en Accesibilidad Digital </h6>
+								<span class="ects">3 ECTS</span>
+							</div>
+							<p>
+								Diseño inclusivo de interfaces, arquitectura de información, componentes, sistemas de diseño, color, tipografía, formularios, navegación y prototipado accesible.
+							</p>
+							<a class="module-link" href="modulo-2.html" tabindex="11">Leer más</a>
+						</article>
+
+						<article class="module module-color-m3">
+							<div>
+								<h6 class="fake-h3">M3. Codificación en Accesibilidad Digital</h6>
+								<span class="ects">3 ECTS</span>
+							</div>
+							<p>
+								HTML semántico, CSS accesible, interacción con teclado, foco visible, JavaScript responsable, WAI-ARIA.
+							</p>
+							<a class="module-link" href="modulo-3.html" tabindex="29">Leer más</a>
+						</article>
+
+						<article class="module module-color-m4">
+							<div>
+								<h6 class="fake-h3">M4. Evaluación en Accesibilidad Digital  </h6>
+								<span class="ects">3 ECTS</span>
+							</div>
+							<p>
+								Metodologías de evaluación WCAG-EM, revisión manual y con herramientas, aplicación de WCAG, priorización de barreras, elaboración de informes y comunicación de resultados.
+							</p>
+							<a class="module-link" href="modulo-4.html" tabindex="13">Leer más</a>
+						</article>
+
+						<article class="module module-color-m5">
+							<div>
+								<h6 class="fake-h3">M5. Documentos Digitales Accesibles</h6>
+								<span class="ects">2,9 ECTS</span>
+							</div>
+							<p>
+								Creación, revisión y corrección de documentos PDF y Word accesibles: estructura, estilos, tablas, imágenes, orden de lectura, metadatos y validación.
+							</p>
+							<a class="module-link" href="modulo-5.html" tabindex="31">Leer más</a>
+						</article>
+					</div>
+				</div>
+			</div>
+
+			<div class="section method-section" id="metodologia">
+				<div class="wrap">
+					<div class="method-intro">
+						<p class="eyebrow">Metodología</p>
+						<h5 class="fake-h2">Aprendizaje aplicado, flexible y acompañado.</h5>
+						<p class="lead">
+							El curso combina estudio autónomo con vídeo, actividades prácticas y sesiónes síncronas semanales para resolver dudas y explicar el trabajo a realizar.
+						</p>
+					</div>
+
+					<div class="method-grid">
+						<article class="method-card">
+							<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="10" y="14" width="44" height="32" rx="6" stroke="currentColor" stroke-width="4"/>
+								<path d="m28 24 12 8-12 8V24Z" fill="currentColor"/>
+								<path d="M22 54h20" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+							<h6 class="fake-h3">Contenido en vídeo</h6>
+							<p>Materiales preparados para trabajar conceptos, demostraciones y criterios técnicos a ritmo propio.</p>
+						</article>
+
+						<article class="method-card">
+							<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="4"/>
+								<path d="M8 52c3-10 10-16 16-16s13 6 16 16" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+								<path d="M42 19h12M42 29h8M42 39h12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+							<h6 class="fake-h3">Sesiones síncronas</h6>
+							<p>Encuentros semanales para dudas, orientación y explicación de la actividad práctica.</p>
+						</article>
+
+						<article class="method-card">
+							<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M16 12h32v40H16z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+								<path d="M24 24h16M24 34h16M24 44h10" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+								<path d="m44 12 6 6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+							<h6 class="fake-h3">Actividades aplicadas</h6>
+							<p>Casos vinculados a diseño, desarrollo, documentos y evaluación de productos digitales.</p>
+						</article>
+
+						<article class="method-card">
+							<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="4"/>
+								<path d="m22 33 7 7 15-18" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M32 10v8M32 46v8M10 32h8M46 32h8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+							<h6 class="fake-h3">Criterio profesional</h6>
+							<p>Se prioriza justificar decisiones, documentar resultados y comunicar barreras con claridad.</p>
+						</article>
+					</div>
+				</div>
+			</div>
+
+			<div class="section" id="profesorado">
+	<div class="wrap">
+		<p class="eyebrow">Profesorado</p>
+		<h5 class="fake-h2">Equipo docente</h5>
+		<p class="lead">
+			El equipo está formado por cinco docentes especializados en accesibilidad digital. Una persona asume la coordinación académica del microcredenciales y acompaña la coherencia entre microcredenciales.
+		</p>
+
+		<div class="teachers">
+
+			<article class="teacher">
+				<div class="teacher-media">
+				<img class="teacher-photo" src="assets/mario-almonte.jpeg">
+				</div>
+				<div class="teacher-body">
+					<span class="teacher-badge">Fundamentos</span>
+				<h6 class="fake-h3">Mario Almonte Moreno</h6>
+					<p>Accesibilidad, normativa y tecnologías de apoyo</p>
+					<small>Introducción al marco conceptual y regulatorio.</small>
+
+				<a class="teacher-link" href="https://www.linkedin.com/in/marioalmonte/" target="_blank" tabindex="35">
+					Aquí
+				</a>
+				</div>
+			</article>
+
+			<article class="teacher">
+				<div class="teacher-media">
+				<img class="teacher-photo" src="assets/xavi-cardet.jpeg">
+				</div>
+				<div class="teacher-body">
+					<span class="teacher-badge">Diseño</span>
+				<h6 class="fake-h3">Xavi Cardet</h6>
+
+					<p>Diseño inclusivo y experiencia de usuario</p>
+					<small>Interfaces, producto digital y criterios de accesibilidad aplicados al diseño.</small>
+
+				<a class="teacher-link" href="https://www.linkedin.com/in/uxavi-cardet/" target="_blank" tabindex="15">
+						Aquí
+					</a>
+				</div>
+			</article>
+
+			<article class="teacher">
+				<div class="teacher-media">
+				<img class="teacher-photo" src="assets/alberto-pedrero.jpeg">
+				</div>
+				<div class="teacher-body">
+					<span class="teacher-badge">Desarrollo</span>
+				<h6 class="fake-h3">Alberto Pedrero Esteban</h6>
+
+					<p>HTML, CSS, JavaScript y WAI-ARIA</p>
+					<small>Implementación accesible y pruebas con teclado.</small>
+				<a class="teacher-link" href="https://www.linkedin.com/in/apedreroes/" target="_blank" tabindex="37">
+						Aquí
+					</a>
+				</div>
+			</article>
+
+			<article class="teacher"> <!-- is-coordinator-->
+				<div class="teacher-media">
+				<img class="teacher-photo" src="assets/afra-pascual.jpeg">
+				</div>
+				<div class="teacher-body">
+			<div class="teacher-badges">
+						<span class="teacher-badge">Coordinación</span>
+						<span class="teacher-badge">Evaluación</span>
+					</div>
+				<h6 class="fake-h3">Afra Pascual Almenara</h6>
+					<p>Coordinación académica y accesibilidad digital</p>
+					<small>Evaluación e informes.</small>
+				<a class="teacher-link" href="https://www.linkedin.com/in/afra-pascual-almenara/" target="_blank" tabindex="17">
+						Aquí
+					</a>
+				</div>
+			</article>
+
+			<article class="teacher">
+				<div class="teacher-media">
+				<img class="teacher-photo" src="assets/jose-humanes.jpeg">
+				</div>
+				<div class="teacher-body">
+					<span class="teacher-badge">Documentos</span>
+				<h6 class="fake-h3">José Humanes Elich</h6>
+					<p>Documentos accesibles y evaluación web</p>
+					<small>PDF, Word, metodología de revisión e informes.</small>
+				<a class="teacher-link" href="https://www.linkedin.com/in/josehumanes/" target="_blank" tabindex="39">
+						Aquí
+					</a>
+				</div>
+			</article>
+
+		</div>
+	</div>
+</div>
+
+				<div class="section" id="faq">
+					<div class="wrap">
+						<p class="eyebrow">Preguntas frecuentes</p>
+
+						<h5 class="fake-h2" id="faq-title">Información práctica de las microcredenciales</h5>
+
+					<p class="lead">
+						Respuestas breves para valorar la inscripción, comprender la admisión y conocer cómo se articula el itinerario de microcredenciales.
+					</p>
+
+					<div class="faq-list">
+						<div class="faq-item">
+								<div class="faq-question">
+									¿Necesito titulación previa?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>No es necesario disponer de una titulación específica. Se valoran conocimientos previos en diseño digital, programación web o entornos tecnológicos.</p>
+							</div>
+						</div>
+						<div class="faq-item">
+								<div class="faq-question">
+									¿Cómo funciona la admisión?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>La admisión se realiza por riguroso orden de inscripción. </p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+								<div class="faq-question">
+									¿A quién va dirigido?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>Está dirigido a perfiles de diseño, desarrollo, gestión de contenidos, comunicación, calidad, docencia y administración pública.</p>
+							</div>
+						</div>
+
+
+						<div class="faq-item">
+								<div class="faq-question">
+									¿Por qué cursar la microcredencial completa: Microcredencial en Especialización en Accesibilidad Digital de 14,9 ECTS?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>Este itinerario permite avanzar de forma progresiva desde los fundamentos de la accesibilidad hasta su aplicación en el diseño de interfaces, el desarrollo web, la evaluación de sitios web y la creación de documentos accesibles.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+								<div class="faq-question">
+									¿Puedo cursar las microcredenciales por separado y obtener después la titulación completa?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>Sí. Las microcredenciales individuales son apilables. Esto significa que, si completas todos los módulos que forman parte del itinerario, podrás obtener la Microcredencial en Especialización en Accesibilidad Digital completa.</p>
+							</div>
+						</div>
+
+						<div class="faq-item">
+								<div class="faq-question">
+									¿Por qué debo cursar el módulo de Fundamentos si quiero matricularme en otra microcredencial?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>El módulo de Fundamentos en Accesibilidad Digital es obligatorio porque proporciona la base común necesaria para comprender el resto de microcredenciales.</p>
+								<p>En este módulo se trabajan los conceptos esenciales de la accesibilidad digital, las necesidades de las personas con discapacidad, el uso de tecnologías de apoyo, las barreras más habituales y el marco normativo básico. Esta base permite abordar el diseño, la codificación, la evaluación web y los documentos accesibles con una perspectiva más empática, técnica y profesional.</p>
+							</div>
+						</div>
+
+
+						<div class="faq-item">
+								<div class="faq-question">
+									¿Qué podré hacer al terminar?
+									<span class="faq-icon"></span>
+								</div>
+							<div class="faq-answer">
+								<p>Al finalizar podrás evaluar webs, diseñar interfaces accesibles, corregir documentos y comunicar informes de accesibilidad.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+
+				<div class="section" id="contacto">
+					<div class="wrap">
+						<p class="eyebrow">Solicitud de información</p>
+
+						<div class="contact contact-layout">
+							<div>
+								<h5 class="fake-h2">¿Quieres recibir información de la Microcredencial?</h5>
+								<p>La inscripción para la siguiente edición del curso todavía no se ha abierto. Registra tus datos y recibirás información de cuando se abra el proceso.</p>
+							</div>
+							<div class="contact-action">
+								<a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScVQtFdEkbamiyzC-E_ZC4JUWKzkNCvw9frEWrdec6UfcEZFA/viewform?usp=preview" target="_blank" tabindex="3">
+									Más información
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const nav = document.getElementById("primary-navigation");
+				const toggle = document.querySelector(".menu-toggle");
+				if (!nav || !toggle) {
+					return;
+				}
+
+				toggle.addEventListener("click", () => {
+					nav.classList.toggle("is-open");
+				});
+
+				nav.querySelectorAll("a").forEach((link) => {
+					link.addEventListener("click", () => {
+						nav.classList.remove("is-open");
+					});
+				});
+
+				document.querySelectorAll(".faq-question").forEach((question) => {
+					question.addEventListener("click", () => {
+						question.closest(".faq-item").classList.toggle("is-open");
+					});
+				});
+			});
+		</script>
+
+		<div class="footer-copy">
+			<div class="wrap">
+				<img class="footer-logo" src="https://www.noticiesdelleida.udl.cat/export/sites/NoticiesDeLleida/ca/.galleries/Imatges/LogoUdLBlanc.png">
+				<p><strong>Microcredenciales en Accesibilidad Digital</strong></p>
+				<p>Universitat de Lleida · Centro de Formación Continua · cfp.formaciopermanent@udl.cat</p>
+			</div>
+		</div>
+	</body>
+</html>
