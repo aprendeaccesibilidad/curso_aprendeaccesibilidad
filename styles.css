@@ -69,9 +69,95 @@ body.page-index {
 				transform: translateY(-150%);
 			}
 
-			body.page-index .skip:focus {
-				transform: none;
-			}
+				body.page-index .skip:focus {
+					transform: none;
+				}
+
+				body[class^="page-"] .preinscription-note {
+					display: inline-block;
+					margin: 14px 0 0;
+					padding: .8rem 1rem;
+					border: 1px solid #E7C56E;
+					background: #FFF4D2;
+					color: #5A3B00;
+					font-size: .95rem;
+					font-weight: 800;
+					line-height: 1.4;
+					max-width: 42rem;
+				}
+
+				body[class^="page-"] .navegacion-modulos {
+					margin: 40px auto 0;
+					padding: 22px 24px 24px;
+					border: 1px solid var(--line);
+					border-radius: 14px;
+					background: var(--surface);
+					box-shadow: var(--shadow);
+				}
+
+				body[class^="page-"] .navegacion-modulos h2 {
+					margin: 0 0 16px;
+					font-size: 1.1rem;
+					line-height: 1.25;
+				}
+
+				body[class^="page-"] .navegacion-modulos ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					display: grid;
+					grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+					gap: 12px;
+				}
+
+				body.page-index .navegacion-modulos li.module-switch-current {
+					grid-column: 1 / -1;
+				}
+
+				body.page-index .navegacion-modulos li.module-switch-current a {
+					display: block;
+					padding: 14px 16px;
+					background: #F7E8EF;
+					border-color: #E1B9CB;
+					color: black;
+				}
+
+				body.page-index .navegacion-modulos li.module-switch-current a::after {
+					content: none;
+				}
+
+				body[class^="page-module-"] .navegacion-modulos li.module-switch-current a {
+					border-color: #E1B9CB;
+					color: black;
+				}
+
+				body[class^="page-module-"] .navegacion-modulos li.module-switch-current {
+					grid-column: 1 / -1;
+				}
+
+				body[class^="page-"] .navegacion-modulos a {
+					display: block;
+					padding: 14px 16px;
+					border: 1px solid var(--line);
+					border-radius: 12px;
+					background: #fff;
+					color: var(--ink);
+					text-decoration: none;
+					font-weight: 700;
+					line-height: 1.35;
+				}
+
+				body[class^="page-"] .navegacion-modulos a:hover,
+				body[class^="page-"] .navegacion-modulos a:focus-visible {
+					border-color: var(--brand);
+					box-shadow: 0 0 0 3px rgba(122, 31, 86, .16);
+				}
+
+				body[class^="page-"] .navegacion-modulos a[aria-current="page"] {
+					background: var(--brand);
+					border-color: var(--brand);
+					color: #fff;
+				}
 
 			body.page-index .sr-only {
 				position: absolute;
@@ -1154,11 +1240,29 @@ body.page-index {
 				font-weight: 800;
 			}
 
-			body.page-index footer {
-				padding: 34px 0;
-				background: #101828;
-				color: #fff;
-			}
+				body.page-index footer {
+					padding: 34px 0;
+					background: #101828;
+					color: #fff;
+				}
+
+				body[class^="page-"] .footer-legal {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 10px 16px;
+					margin-top: 14px;
+				}
+
+				body[class^="page-"] .footer-legal a {
+					color: inherit;
+				}
+
+				body[class^="page-"] .footer-legal a:focus-visible {
+					outline: 3px solid #fff;
+					outline-offset: 4px;
+					text-decoration: underline;
+					text-underline-offset: .18em;
+				}
 
 			body.page-index .footer-logo {
 				display: block;
@@ -3325,7 +3429,7 @@ body.page-module-2 {
 					border: 3px solid #fff;
 					border-radius: 999px;
 					background: #fff;
-					color: #15568d;
+					color: var(--brand);
 					font-weight: 900;
 					text-decoration: none;
 				}
@@ -6012,13 +6116,20 @@ body.page-module-3 {
 				grid-area: content;
 			}
 
-			body[class^="page-"]:not(.page-index) .sidebar {
-				grid-area: sidebar;
-			}
+				body[class^="page-"]:not(.page-index) .sidebar {
+					grid-area: sidebar;
+				}
 
-			body[class^="page-"] .site-nav {
-				width: 100%;
-			}
+				body[class^="page-module-"] .sidebar nav a.is-current,
+				body[class^="page-module-"] .sidebar nav a[aria-current="location"] {
+					background: var(--brand);
+					color: #fff;
+					box-shadow: inset 4px 0 0 #fff;
+				}
+
+				body[class^="page-"] .site-nav {
+					width: 100%;
+				}
 
 			body[class^="page-"] .menu-toggle {
 				display: none;

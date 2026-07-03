@@ -1,44 +1,112 @@
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.getElementById("primary-navigation");
   const toggle = document.querySelector(".menu-toggle");
-
-  if (!nav || !toggle) {
-    return;
-  }
-
   const media = window.matchMedia("(max-width: 900px)");
-  const links = nav.querySelectorAll("a");
 
-  const setOpen = (open) => {
-    nav.classList.toggle("is-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Cerrar menú principal" : "Abrir menú principal");
-  };
+  if (nav && toggle) {
+    const links = nav.querySelectorAll("a");
 
-  setOpen(false);
+    const setOpen = (open) => {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menú principal" : "Abrir menú principal");
+    };
 
-  toggle.addEventListener("click", () => {
-    setOpen(!nav.classList.contains("is-open"));
-  });
+    setOpen(false);
 
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (media.matches) {
+    toggle.addEventListener("click", () => {
+      setOpen(!nav.classList.contains("is-open"));
+    });
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (media.matches) {
+          setOpen(false);
+        }
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (!media.matches) {
         setOpen(false);
       }
     });
-  });
+  }
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && nav.classList.contains("is-open")) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
+  const moduleSidebarLinks = Array.from(
+    document.querySelectorAll('body[class^="page-module-"] .sidebar nav a[href^="#"]')
+  );
 
-  window.addEventListener("resize", () => {
-    if (!media.matches) {
-      setOpen(false);
-    }
-  });
+  if (moduleSidebarLinks.length) {
+    const sections = moduleSidebarLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    let activeId = "";
+    let ticking = false;
+
+    const setActive = (id) => {
+      activeId = id;
+
+      moduleSidebarLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        if (isActive) {
+          link.setAttribute("aria-current", "location");
+          link.classList.add("is-current");
+        } else {
+          link.removeAttribute("aria-current");
+          link.classList.remove("is-current");
+        }
+      });
+    };
+
+    const updateActive = () => {
+      const threshold = 180;
+      let current = sections[0]?.id || "";
+
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= threshold) {
+          current = section.id;
+        }
+      });
+
+      if (!current && location.hash) {
+        current = location.hash.slice(1);
+      }
+
+      if (current && current !== activeId) {
+        setActive(current);
+      }
+    };
+
+    const scheduleUpdate = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        ticking = false;
+        updateActive();
+      });
+    };
+
+    setActive(location.hash ? location.hash.slice(1) : sections[0]?.id || "");
+    updateActive();
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("hashchange", () => {
+      setActive(location.hash ? location.hash.slice(1) : sections[0]?.id || "");
+      scheduleUpdate();
+    });
+  }
 });

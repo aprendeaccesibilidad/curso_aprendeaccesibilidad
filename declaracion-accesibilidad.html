@@ -11,8 +11,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="styles.css">
 	</head>
-	<body class="page-index page-accessibility">
-		<a class="skip" href="#contenido">Saltar al contenido principal</a>
+		<body class="page-index page-accessibility">
+			<a class="skip" href="#contenido">Saltar al contenido principal</a>
 
 		<header class="topbar">
 			<div class="wrap nav">
@@ -28,30 +28,34 @@
 					<span class="menu-toggle-icon" aria-hidden="true"></span>
 				</button>
 
-				<!--
 				<nav id="primary-navigation" class="site-nav" aria-label="Navegación principal">
 					<ul class="menu">
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="index.html#como-cursar">Cómo funciona</a></li>
-						<li><a href="index.html#modulos">Itinerario completo</a></li>
+						<li><a href="index.html#contenido">Inicio</a></li>
 						<li>
 							<details class="modules-menu">
 								<summary>Microcredenciales</summary>
 								<ul class="modules-dropdown">
-									<li><a href="modulo-1.html">M1. Fundamentos</a></li>
-									<li><a href="modulo-2.html">M2. Diseño</a></li>
-									<li><a href="modulo-3.html">M3. Codificación</a></li>
-									<li><a href="modulo-4.html">M4. Evaluación web</a></li>
-									<li><a href="modulo-5.html">M5. Documentos Digitales</a></li>
+									
+									<li><a href="modulo1-fundamentos.html" aria-current="page">M1. Fundamentos</a></li>
+									<li><a href="modulo2-diseño.html">M2. Diseño</a></li>
+									<li><a href="modulo3-codificacion.html">M3. Codificación</a></li>
+									<li><a href="modulo4-evaluacion.html">M4. Evaluación web</a></li>
+									<li><a href="modulo5-documentos.html">M5. Documentos Digitales</a></li>
 								</ul>
 							</details>
 						</li>
+						<li><a href="index.html#como-cursar">Opciones formativas</a></li>
+						<li><a href="index.html#modulos">Módulos</a></li>
+						<li><a href="index.html#metodologia">Metodología</a></li>
 						<li><a href="index.html#profesorado">Profesorado</a></li>
 						<li><a href="index.html#faq">Preguntas frecuentes</a></li>
-						<li><a href="index.html#contacto">Inscripción</a></li>
+						<li>
+							<a class="btn btn-primary" href="#inscripcion">
+								Preinscripción
+							</a>
+						</li>
 					</ul>
 				</nav>
-			-->
 			</div>
 		</header>
 
@@ -62,53 +66,16 @@
 						<a href="index.html">Volver a Inicio</a>
 					</div>
 				</nav>
-			<!--
-			<section class="hero" aria-labelledby="declaracion-title">
+			<section class="section" aria-labelledby="declaracion-title">
 				<div class="wrap">
-					<div class="hero-panel">
-						<div class="hero-main">
-							<div class="hero-title-block">
-								<p class="eyebrow">Accesibilidad · WCAG 2.2 AA · RD 1112/2018</p>
-								<h1 class="h1" id="declaracion-title">Declaración de accesibilidad</h1>
-							</div>
-
-							<div class="hero-copy">
-								<p class="lead">
-									Esta declaración se aplica al sitio web de las Microcredenciales en Accesibilidad Digital de la Universitat de Lleida.
-								</p>
-								<div class="actions">
-									<a class="btn btn-primary" href="index.html">Volver al inicio</a>
-									<a class="btn btn-alt" href="http://www.cfc.udl.cat/fc/avis/?idioma=es&codi=065S" target="_blank" rel="noopener noreferrer">Preinscripción</a>
-								</div>
-							</div>
-						</div>
-
-						<aside class="hero-info-band" aria-labelledby="declaracion-resumen-title">
-							<h2 id="declaracion-resumen-title">Resumen</h2>
-
-							<ul class="hero-facts">
-								<li>
-									<strong>Norma de referencia</strong>
-									<span>Real Decreto 1112/2018 y WCAG 2.2 AA.</span>
-								</li>
-								<li>
-									<strong>Revisión</strong>
-									<span>Declaración preparada el 3 de julio de 2026.</span>
-								</li>
-								<li>
-									<strong>Contacto</strong>
-									<span>cfp.formaciopermanent@udl.cat</span>
-								</li>
-								<li>
-									<strong>Actualización</strong>
-									<span>Se revisa cuando el sitio incorpora cambios significativos.</span>
-								</li>
-							</ul>
-						</aside>
-					</div>
+					<article class="panel">
+						<p class="eyebrow">Accesibilidad · WCAG 2.2 AA · RD 1112/2018</p>
+						<h1 id="declaracion-title">Declaración de accesibilidad</h1>
+						<p class="lead">Esta declaración se aplica al sitio web de las Microcredenciales en Accesibilidad Digital de la Universitat de Lleida.</p>
+						<p><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
+					</article>
 				</div>
 			</section>
-			-->
 
 			<section class="section" aria-labelledby="estado-title">
 				<div class="wrap">
@@ -182,13 +149,15 @@
 
 		<script src="menu.js"></script>
 
-		<footer>
-			<div class="wrap">
-				<img class="footer-logo" src="https://www.noticiesdelleida.udl.cat/export/sites/NoticiesDeLleida/ca/.galleries/Imatges/LogoUdLBlanc.png" alt="Universitat de Lleida">
-				<p><strong>Microcredenciales en Accesibilidad Digital</strong></p>
-				<p>Universitat de Lleida · Centro de Formación Continua · cfp.formaciopermanent@udl.cat</p>
-				<p><a href="declaracion-accesibilidad.html">Declaración de accesibilidad</a></p>
-			</div>
-		</footer>
+			<footer>
+				<div class="wrap">
+					<img class="footer-logo" src="https://www.noticiesdelleida.udl.cat/export/sites/NoticiesDeLleida/ca/.galleries/Imatges/LogoUdLBlanc.png" alt="Universitat de Lleida">
+					<p><strong>Microcredenciales en Accesibilidad Digital</strong></p>
+					<p>Universitat de Lleida · Centro de Formación Continua · cfp.formaciopermanent@udl.cat</p>
+					<nav class="footer-legal" aria-label="Información legal">
+						<a href="declaracion-accesibilidad.html">Declaración de accesibilidad</a>
+					</nav>
+				</div>
+			</footer>
 	</body>
 </html>
