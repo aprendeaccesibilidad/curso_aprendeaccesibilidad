@@ -1,0 +1,64 @@
+# Formación en Accesibilidad Digital · Universitat de Lleida
+
+> Web informativa sobre el Especialista Universitario en Accesibilidad Digital y sus microcredenciales asociadas. La formación es online, en castellano y está orientada a fundamentos, diseño accesible, codificación accesible, evaluación web y documentos digitales accesibles.
+
+## Página principal
+
+- [Especialista Universitario en Accesibilidad Digital](https://aprendeaccesibilidad.udl.cat/)
+  - Curso online de accesibilidad digital de la Universitat de Lleida.
+  - Formación universitaria aplicada y orientada a la práctica profesional.
+  - Puede cursarse como itinerario completo o mediante microcredenciales individuales.
+  - Ámbitos: fundamentos, diseño accesible, codificación accesible, evaluación web y documentos digitales accesibles.
+
+## Microcredenciales
+
+- [M1. Fundamentos en Accesibilidad Digital](https://aprendeaccesibilidad.udl.cat/modulo1-fundamentos.html)
+  - Principios de accesibilidad digital, diversidad funcional, tecnologías de apoyo, barreras habituales, normativa y criterios WCAG aplicados al contexto profesional.
+
+- [M2. Diseño en Accesibilidad Digital](https://aprendeaccesibilidad.udl.cat/modulo2-diseño.html)
+  - Diseño inclusivo de interfaces, arquitectura de información, componentes, sistemas de diseño, color, tipografía, formularios, navegación y prototipado accesible.
+
+- [M3. Codificación en Accesibilidad Digital](https://aprendeaccesibilidad.udl.cat/modulo3-codificacion.html)
+  - HTML semántico, CSS accesible, interacción con teclado, foco visible, JavaScript responsable y WAI-ARIA.
+
+- [M4. Evaluación en Accesibilidad Digital](https://aprendeaccesibilidad.udl.cat/modulo4-evaluacion.html)
+  - Metodologías de evaluación WCAG-EM, revisión manual y con herramientas, aplicación de WCAG, priorización de barreras, elaboración de informes y comunicación de resultados.
+
+- [M5. Documentos Digitales Accesibles](https://aprendeaccesibilidad.udl.cat/modulo5-documentos.html)
+  - Creación, revisión y corrección de documentos PDF y Word accesibles: estructura, estilos, tablas, imágenes, orden de lectura, metadatos y validación.
+
+## Público destinatario
+
+La formación se dirige a perfiles de diseño, desarrollo web, gestión de contenidos, comunicación, calidad, docencia, administración pública y personas interesadas en aplicar la accesibilidad digital en proyectos reales.
+
+## Metodología
+
+El curso combina estudio autónomo, vídeos, actividades prácticas y sesiones síncronas semanales para resolver dudas, orientar el trabajo y explicar las actividades.
+
+## Equipo docente
+
+La formación cuenta con docentes especializados en accesibilidad digital, diseño inclusivo, desarrollo web accesible, evaluación de accesibilidad y documentos digitales accesibles.
+
+## Información institucional
+
+- Entidad: Universitat de Lleida
+- Centro: Centro de Formación Continua
+- Modalidad: online
+- Idioma: castellano
+- Ámbito: accesibilidad digital, accesibilidad web, WCAG, EN 301 549, diseño accesible, desarrollo web accesible, evaluación de accesibilidad, documentos digitales accesibles
+
+## Recursos relacionados
+
+- [Jornada GAAD UdL](https://gaad.udl.cat/)
+- [Ficha oficial del curso](https://formaciopermanent.udl.cat/ca/programes-formatius/cursos/5178)
+- [Preinscripción](http://www.cfc.udl.cat/fc/avis/?idioma=es&codi=065S)
+
+## Contacto
+
+- cfp.formaciopermanent@udl.cat
+
+## Notas para agentes IA
+
+- Usar la página principal y las páginas de microcredenciales como fuentes públicas de información.
+- No usar páginas de prueba o versiones no accesibles como referencia pública.
+- Priorizar la información textual visible en HTML, los datos estructurados Course, ItemList, FAQPage y BreadcrumbList si están presentes, y los enlaces institucionales de la Universitat de Lleida.
