@@ -86,6 +86,7 @@ body.page-index {
 					max-width: 42rem;
 				}
 
+
 				body[class^="page-"] .navegacion-modulos {
 					margin: 40px auto 0;
 					padding: 22px 24px 24px;
@@ -629,8 +630,10 @@ body.page-index {
 				color: #344054;
 			}
 
+
 			body.page-index .module-meta {
 				display: grid;
+				flex: 1;
 				gap: 10px;
 				margin: 0 18px 18px;
 				padding: 16px;
@@ -784,32 +787,33 @@ body.page-index {
 			body.page-index .pathway-price {
 				display: grid;
 				gap: 8px;
-				margin: 24px 0;
-				padding: 22px;
-				border-radius: 16px;
-				background: #F8FAFC;
-				border: 1px solid rgba(16, 24, 40, .12);
-				box-shadow: 0 10px 24px rgba(16, 24, 40, .06);
+				margin: 18px 0;
+				padding: 16px 18px;
+				border-radius: 14px;
+				background: #F9FAFB;
+				border: 1px solid rgba(16, 24, 40, .08);
+				box-shadow: none;
 			}
 
 			body.page-index .pathway-price span {
-				color: #475467;
-				font-size: .82rem;
-				font-weight: 900;
-				letter-spacing: .08em;
+				color: #667085;
+				font-size: .74rem;
+				font-weight: 800;
+				letter-spacing: .06em;
 				text-transform: uppercase;
 			}
 
 			body.page-index .pathway-price strong {
-				color: var(--ink);
-				font-size: clamp(2.6rem, 5vw, 3.7rem);
+				color: #344054;
+				font-size: clamp(2rem, 4vw, 2.8rem);
 				line-height: 1;
 			}
 
 			body.page-index .pathway-price p {
 				margin: 0;
-				color: #344054;
-				font-weight: 700;
+				color: #050506;
+				font-weight: 600;
+				font-size: .92rem;
 			}
 
 			body.page-index .pathway-includes {
@@ -1131,6 +1135,101 @@ body.page-index {
 				display: grid;
 				gap: 14px;
 				margin-top: 28px;
+			}
+
+			body.page-index #faq .eyebrow {
+				margin-bottom: 12px;
+			}
+
+			body.page-index #faq h2 {
+				font-size: clamp(3.2rem, 6.6vw, 5rem);
+				line-height: .92;
+				letter-spacing: -.055em;
+				margin: 0 0 24px;
+				max-width: 14ch;
+			}
+
+			body.page-index #faq .faq-intro {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				gap: 18px 40px;
+				align-items: center;
+				margin-bottom: 22px;
+			}
+
+			body.page-index #faq .faq-intro .lead {
+				margin: 0;
+				max-width: 60rem;
+				font-size: clamp(1.22rem, 1.35vw, 1.62rem);
+				line-height: 1.2;
+			}
+
+			body.page-index #faq .faq-controls {
+				justify-self: end;
+				display: flex;
+				justify-content: flex-end;
+				margin-top: 0;
+			}
+
+			body.page-index #faq .faq-toggle {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: .55rem;
+				min-height: 60px;
+				min-width: 294px;
+				padding: 1rem 1.55rem;
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				background: #fff;
+				color: var(--ink);
+				font: inherit;
+				font-weight: 900;
+				box-shadow: 0 16px 34px rgba(16, 24, 40, .08);
+			}
+
+			body.page-index #faq .faq-toggle:hover {
+				border-color: #b9c2cf;
+			}
+
+			body.page-index #faq .faq-toggle-label {
+				white-space: nowrap;
+			}
+
+			body.page-index #faq .faq-toggle-icon {
+				position: relative;
+				inline-size: 1rem;
+				block-size: 1rem;
+				flex: 0 0 auto;
+			}
+
+			body.page-index #faq .faq-toggle-icon::before,
+			body.page-index #faq .faq-toggle-icon::after {
+				content: "";
+				position: absolute;
+				inset-inline-start: 50%;
+				inset-block-start: 50%;
+				inline-size: .7rem;
+				block-size: .14rem;
+				border-radius: 999px;
+				background: currentColor;
+				transform-origin: center;
+			}
+
+			body.page-index #faq .faq-toggle-icon::before {
+				transform: translate(-50%, -50%);
+			}
+
+			body.page-index #faq .faq-toggle-icon::after {
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
+
+			body.page-index #faq .faq-toggle[aria-expanded="true"] .faq-toggle-icon::after {
+				opacity: 0;
+			}
+
+			body.page-index #faq .faq-toggle[aria-expanded="false"] .faq-toggle-icon::after {
+				opacity: 1;
 			}
 
 			body.page-index .faq-item {
@@ -1824,6 +1923,29 @@ body.page-index {
 
 				body.page-index .pathway .pathway-modules {
 					grid-template-columns: 1fr;
+				}
+
+				body.page-index #faq .faq-intro {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 10px 12px;
+				}
+
+				body.page-index #faq .faq-intro .lead {
+					flex-basis: 100%;
+					max-width: none;
+					font-size: 1.05rem;
+				}
+
+				body.page-index #faq .faq-controls {
+					width: 100%;
+					justify-content: flex-end;
+				}
+
+				body.page-index #faq .faq-toggle {
+					padding: .72rem .9rem;
+					min-height: 44px;
+					min-width: 0;
 				}
 
 				body.page-index footer {
@@ -6076,6 +6198,9 @@ body.page-module-3 {
 
 			body[class^="page-"] .logo {
 				min-width: 0;
+				align-items: center;
+				justify-self: start;
+				text-align: left;
 			}
 
 			body[class^="page-"]:not(.page-index) .logo-text {
@@ -6100,12 +6225,90 @@ body.page-module-3 {
 				color: var(--muted);
 			}
 
-			body[class^="page-"]:not(.page-index) .header-icon {
-				border-radius: 12px;
+			body[class^="page-"] .site-announcement {
+				padding: 6px 0;
+				background: linear-gradient(180deg, #fff8de 0%, #f4e1a0 100%);
+				border-bottom: 1px solid #d8bf67;
 			}
+
+			body[class^="page-"] .site-announcement .wrap {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				min-width: 0;
+			}
+
+			body[class^="page-"] .announcement-icon {
+				flex: 0 0 auto;
+				display: grid;
+				place-items: center;
+				width: 28px;
+				height: 28px;
+				font-size: 1rem;
+				line-height: 1;
+				color: #7A1F56;
+			}
+
+			body[class^="page-"] .announcement-copy {
+				margin: 0;
+				min-width: 0;
+				color: #392700;
+				font-size: .96rem;
+				font-weight: 800;
+				line-height: 1.15;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			body[class^="page-"] .announcement-copy a {
+				color: inherit;
+				font-weight: 900;
+				text-decoration: underline;
+				text-underline-offset: .18em;
+			}
+
+				body[class^="page-"] .header-icon {
+					display: block;
+					width: clamp(180px, 19vw, 238px);
+					height: auto;
+					flex: 0 0 auto;
+					background: transparent;
+					border-radius: 0;
+					object-fit: contain;
+					margin-left: -50px;
+				}
 
 			body[class^="page-"] .logo-subline {
 				display: inline;
+			}
+
+			body[class^="page-"] .logo-title {
+				display: block;
+				font-size: clamp(1.55rem, 2.15vw, 2.35rem);
+				line-height: 1.02;
+				font-weight: 900;
+				color: #101828;
+			}
+
+			body[class^="page-"] .logo-subline {
+				display: block;
+				font-size: clamp(1.05rem, 1.4vw, 1.55rem);
+				line-height: 1.04;
+				font-weight: 900;
+				color: #475467;
+			}
+
+			body[class^="page-module-"] .logo-title {
+				font-size: clamp(1.55rem, 2.15vw, 2.35rem);
+			}
+
+			body[class^="page-module-"] .logo-subline {
+				font-size: clamp(1.05rem, 1.4vw, 1.55rem);
+			}
+
+			body[class^="page-"] .logo-text {
+				align-items: flex-start;
 			}
 
 			body[class^="page-"]:not(.page-index) .content-grid {
@@ -6189,6 +6392,19 @@ body.page-module-3 {
 					row-gap: 4px;
 				}
 
+				body[class^="page-"] .logo-title {
+					font-size: 1.3rem;
+				}
+
+				body[class^="page-"] .logo-subline {
+					font-size: .95rem;
+				}
+
+				body[class^="page-"] .header-icon {
+					width: min(180px, 56vw);
+					margin-left: -8px;
+				}
+
 				body[class^="page-"]:not(.page-index) .logo-text {
 					row-gap: 2px;
 				}
@@ -6232,6 +6448,11 @@ body.page-module-3 {
 					justify-content: space-between;
 				}
 
+				body[class^="page-"] .menu > li:last-child .btn-primary {
+					justify-content: center;
+					text-align: center;
+				}
+
 				body[class^="page-"] .modules-menu {
 					width: 100%;
 				}
@@ -6244,6 +6465,60 @@ body.page-module-3 {
 			}
 
 				@media (max-width: 620px) {
+					body[class^="page-"] .site-announcement {
+						padding: 4px 0;
+					}
+
+					body[class^="page-"] .site-announcement .wrap {
+						gap: 8px;
+					}
+
+					body[class^="page-"] .announcement-icon {
+						width: 20px;
+						height: 20px;
+						font-size: .8rem;
+					}
+
+					body[class^="page-"] .announcement-copy {
+						font-size: .68rem;
+						line-height: 1.16;
+						white-space: normal;
+						overflow: visible;
+						text-overflow: clip;
+					}
+
+					body[class^="page-"] .topbar {
+						padding: 10px 0;
+					}
+
+					body[class^="page-"] .nav {
+						gap: 8px;
+					}
+
+					body[class^="page-"] .logo {
+						flex-wrap: nowrap;
+						gap: 8px;
+					}
+
+					body[class^="page-"] .header-icon {
+						width: 40px;
+						margin-left: 0;
+					}
+
+					body[class^="page-"] .logo-text {
+						row-gap: 0;
+					}
+
+					body[class^="page-"] .logo-title {
+						font-size: .9rem;
+						line-height: 1.06;
+					}
+
+					body[class^="page-"] .logo-subline {
+						font-size: .68rem;
+						line-height: 1.08;
+					}
+
 					body[class^="page-"] footer {
 						padding-bottom: 104px;
 					}
@@ -6269,14 +6544,18 @@ body.page-module-3 {
 					min-width: 0;
 				}
 
-				body[class^="page-"]:not(.page-index) .logo-title {
-					font-size: .95rem;
+				body[class^="page-"] .logo-title {
+					font-size: 1rem;
+					line-height: 1.1;
+				}
+
+				body[class^="page-"] .logo-subline {
+					font-size: .8rem;
 					line-height: 1.15;
 				}
 
-				body[class^="page-"]:not(.page-index) .logo-subline {
-					font-size: .78rem;
-					line-height: 1.25;
+				body[class^="page-"] .header-icon {
+					margin-left: -4px;
 				}
 
 				body[class^="page-module-"] h1 {
@@ -6329,8 +6608,50 @@ body.page-module-3 {
 					font-size: clamp(1.65rem, 8vw, 2.15rem);
 				}
 
+				/*
+				 * En las versiones accesibles de la portada se muestra la
+				 * fotografía docente completa en móvil. indexB no utiliza
+				 * esta clase y conserva deliberadamente su recorte.
+				 */
+				body.page-index.mobile-teacher-photos .teacher-media {
+					aspect-ratio: auto;
+					width: min(56vw, 200px);
+					min-height: 0;
+					max-height: none;
+					margin: 18px auto 0;
+					padding: 0;
+					border-radius: 18px;
+				}
+
+				body.page-index.mobile-teacher-photos .teacher-photo {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					object-position: center;
+				}
+
 				body[class^="page-module-"] .actions .btn,
 				body[class^="page-module-"] .actions .btn-alt {
 					padding-inline: 16px;
+				}
+			}
+
+			/* Encuadre móvil completo solo para index.html e indexA.html. */
+			@media (max-width: 620px) {
+				body.page-index.mobile-teacher-photos .teacher-media {
+					aspect-ratio: auto;
+					width: min(56vw, 200px);
+					min-height: 0;
+					max-height: none;
+					margin: 18px auto 0;
+					padding: 0;
+					border-radius: 18px;
+				}
+
+				body.page-index.mobile-teacher-photos .teacher-photo {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+					object-position: center;
 				}
 			}
