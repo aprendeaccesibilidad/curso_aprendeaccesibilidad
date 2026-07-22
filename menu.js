@@ -109,4 +109,34 @@ document.addEventListener("DOMContentLoaded", () => {
       scheduleUpdate();
     });
   }
+
+  const faqToggle = document.querySelector("[data-faq-toggle]");
+  const faqItems = Array.from(document.querySelectorAll(".faq-list .faq-item"));
+
+  if (faqToggle && faqItems.length) {
+    const faqLabel = faqToggle.querySelector(".faq-toggle-label");
+    let faqOpen = true;
+
+    const setFaqState = (open) => {
+      faqOpen = open;
+      faqItems.forEach((item) => {
+        item.open = open;
+      });
+
+      if (faqLabel) {
+        faqLabel.textContent = open ? "Plegar todas" : "Abrir todas";
+      } else {
+        faqToggle.textContent = open ? "Plegar todas" : "Abrir todas";
+      }
+
+      faqToggle.setAttribute("aria-expanded", String(open));
+    };
+
+    setFaqState(true);
+
+    faqToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      setFaqState(!faqOpen);
+    });
+  }
 });
